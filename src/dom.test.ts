@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest'
 
 import {
   isElement,
+  isElementLike,
   isHTMLElement,
   isMathMLElement,
   isSVGElement,
@@ -54,5 +55,32 @@ describe('isMathMLElement', () => {
   it('returns false for non-MathML elements', () => {
     const div = document.createElement('div')
     expect(isMathMLElement(div)).toBe(false)
+  })
+})
+
+describe('isElementLike', () => {
+  it('returns true for HTML elements', () => {
+    const div = document.createElement('div')
+    expect(isElementLike(div)).toBe(true)
+  })
+
+  it('returns true for SVG elements', () => {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+    expect(isElementLike(svg)).toBe(true)
+  })
+
+  it('returns false for text nodes', () => {
+    const text = document.createTextNode('text')
+    expect(isElementLike(text)).toBe(false)
+  })
+
+  it('returns false for non-node values', () => {
+    expect(isElementLike({})).toBe(false)
+    expect(isElementLike(null)).toBe(false)
+    expect(isElementLike(undefined)).toBe(false)
+    expect(isElementLike('string')).toBe(false)
+    expect(isElementLike(123)).toBe(false)
+    expect(isElementLike(true)).toBe(false)
+    expect(isElementLike(() => 123)).toBe(false)
   })
 })

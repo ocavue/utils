@@ -1,3 +1,5 @@
+import { isObject } from './checker'
+
 /**
  * @internal
  */
@@ -36,5 +38,16 @@ export function isMathMLElement(node: Node): node is MathMLElement {
   return (
     isElement(node) &&
     node.namespaceURI === 'http://www.w3.org/1998/Math/MathML'
+  )
+}
+
+/**
+ * Checks if an unknown value is likely a DOM element.
+ */
+export function isElementLike(value: unknown): value is Element {
+  return (
+    isObject(value) &&
+    value.nodeType === NodeType.ELEMENT_NODE &&
+    typeof value.nodeName === 'string'
   )
 }
