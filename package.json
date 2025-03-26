@@ -58,6 +58,9 @@
     "vite": "^6.0.12",
     "vitest": "^3.0.9"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "renovate": {
     "extends": [
       "github>ocavue/config-renovate"
