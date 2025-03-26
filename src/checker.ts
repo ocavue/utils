@@ -1,4 +1,3 @@
-// @vitest-environment node
 
 export function isObject(
   value: unknown,
