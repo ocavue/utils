@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/ocavue/utils/compare/v0.3.0...v0.4.0) (2025-03-28)
+
+
+### Features
+
+* add more DOM utils ([#3](https://github.com/ocavue/utils/issues/3)) ([202880c](https://github.com/ocavue/utils/commit/202880c5d9983f1d4fb3dcbb9c81f4a89ccfdd20))
+
 ## [0.3.0](https://github.com/ocavue/utils/compare/v0.2.0...v0.3.0) (2025-03-26)
 
 
