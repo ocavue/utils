@@ -3,12 +3,18 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  getWindow,
+  isDocument,
+  isDocumentFragment,
   isElement,
   isElementLike,
   isHTMLElement,
   isMathMLElement,
+  isNodeLike,
+  isShadowRoot,
   isSVGElement,
   isTextNode,
+  isWindowLike,
 } from './dom'
 
 describe('isElement', () => {
@@ -82,5 +88,92 @@ describe('isElementLike', () => {
     expect(isElementLike(123)).toBe(false)
     expect(isElementLike(true)).toBe(false)
     expect(isElementLike(() => 123)).toBe(false)
+  })
+})
+
+describe('isDocument', () => {
+  it('returns true for document', () => {
+    expect(isDocument(document)).toBe(true)
+  })
+
+  it('returns false for other nodes', () => {
+    const div = document.createElement('div')
+    expect(isDocument(div)).toBe(false)
+  })
+})
+
+describe('isDocumentFragment', () => {
+  it('returns true for document fragment', () => {
+    const fragment = document.createDocumentFragment()
+    expect(isDocumentFragment(fragment)).toBe(true)
+  })
+
+  it('returns false for other nodes', () => {
+    const div = document.createElement('div')
+    expect(isDocumentFragment(div)).toBe(false)
+  })
+})
+
+describe('isShadowRoot', () => {
+  it('returns true for shadow root', () => {
+    const div = document.createElement('div')
+    const shadowRoot = div.attachShadow({ mode: 'open' })
+    expect(isShadowRoot(shadowRoot)).toBe(true)
+  })
+
+  it('returns false for other nodes', () => {
+    const div = document.createElement('div')
+    expect(isShadowRoot(div)).toBe(false)
+  })
+})
+
+describe('isNodeLike', () => {
+  it('returns true for DOM nodes', () => {
+    const div = document.createElement('div')
+    expect(isNodeLike(div)).toBe(true)
+
+    const text = document.createTextNode('text')
+    expect(isNodeLike(text)).toBe(true)
+  })
+
+  it('returns false for non-node values', () => {
+    expect(isNodeLike({})).toBe(false)
+    expect(isNodeLike(null)).toBe(false)
+    expect(isNodeLike(undefined)).toBe(false)
+    expect(isNodeLike('string')).toBe(false)
+  })
+})
+
+describe('isWindowLike', () => {
+  it('returns true for window object', () => {
+    expect(isWindowLike(window)).toBe(true)
+  })
+
+  it('returns false for non-window values', () => {
+    const div = document.createElement('div')
+    expect(isWindowLike(div)).toBe(false)
+    expect(isWindowLike({})).toBe(false)
+    expect(isWindowLike(null)).toBe(false)
+  })
+})
+
+describe('getWindow', () => {
+  it('returns window when no target is provided', () => {
+    expect(getWindow()).toBe(window)
+  })
+
+  it('returns window for element', () => {
+    const div = document.createElement('div')
+    expect(getWindow(div)).toBe(window)
+  })
+
+  it('returns window for document', () => {
+    expect(getWindow(document)).toBe(window)
+  })
+
+  it('returns window for shadow root', () => {
+    const div = document.createElement('div')
+    const shadowRoot = div.attachShadow({ mode: 'open' })
+    expect(getWindow(shadowRoot)).toBe(window)
   })
 })
