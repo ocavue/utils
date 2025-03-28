@@ -131,7 +131,7 @@ describe('isNodeLike', () => {
   it('returns true for DOM nodes', () => {
     const div = document.createElement('div')
     expect(isNodeLike(div)).toBe(true)
-    
+
     const text = document.createTextNode('text')
     expect(isNodeLike(text)).toBe(true)
   })
