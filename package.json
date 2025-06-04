@@ -53,6 +53,7 @@
     "eslint": "^9.23.0",
     "jsdom": "^26.0.0",
     "prettier": "^3.5.3",
+    "size-limit": "^11.2.0",
     "tsdown": "^0.12.6",
     "typescript": "^5.7.2",
     "vite": "^6.0.12",
