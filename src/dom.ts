@@ -107,7 +107,7 @@ export function isWindowLike(value: unknown): value is Window {
  * target is provided.
  */
 export function getWindow(
-  target?: Node | ShadowRoot | Document | null | undefined,
+  target?: Node | ShadowRoot | Document | null,
 ): Window & typeof globalThis {
   if (target) {
     if (isShadowRoot(target)) {
@@ -128,7 +128,7 @@ export function getWindow(
  * provided.
  */
 export function getDocument(
-  target?: Element | Window | Node | Document | null | undefined,
+  target?: Element | Window | Node | Document | null,
 ): Document {
   if (target) {
     if (isWindowLike(target)) {
@@ -146,7 +146,7 @@ export function getDocument(
  * Gets a reference to the root node of the document based on the given target.
  */
 export function getDocumentElement(
-  target?: Element | Node | Window | Document | null | undefined,
+  target?: Element | Node | Window | Document | null,
 ): HTMLElement {
   return getDocument(target).documentElement
 }
