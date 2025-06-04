@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/ocavue/utils/compare/v0.4.0...v0.5.0) (2025-06-04)
+
+
+### Features
+
+* add once ([#6](https://github.com/ocavue/utils/issues/6)) ([bead51c](https://github.com/ocavue/utils/commit/bead51cf70bac34efc567005c7462a36f3d44445))
+
 ## [0.4.0](https://github.com/ocavue/utils/compare/v0.3.0...v0.4.0) (2025-03-28)
 
 
