@@ -5,5 +5,4 @@ export default defineConfig({
   format: ['esm'],
   tsconfig: 'tsconfig.build.json',
   clean: true,
-  experimentalDts: true,
 })
