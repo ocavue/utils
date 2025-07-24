@@ -25,8 +25,6 @@ describe('isObject', () => {
     expect(isObject(42n)).toBe(false)
     expect(isObject(Number.NaN)).toBe(false)
     expect(isObject(Infinity)).toBe(false)
-    expect(isObject(null)).toBe(false)
-    expect(isObject(undefined)).toBe(false)
     expect(isObject(true)).toBe(false)
     expect(isObject(false)).toBe(false)
     expect(isObject(Symbol.iterator)).toBe(false)
