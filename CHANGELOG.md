@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.6.0](https://github.com/ocavue/utils/compare/v0.5.0...v0.6.0) (2025-07-24)
+
+
+### Features
+
+* add `formatBytes` ([#13](https://github.com/ocavue/utils/issues/13)) ([26e2222](https://github.com/ocavue/utils/commit/26e22224d9198d1a965ffc5baf8cc25ee9fbc999))
+
+
+### Bug Fixes
+
+* remove array check in `isObject` ([#17](https://github.com/ocavue/utils/issues/17)) ([283e277](https://github.com/ocavue/utils/commit/283e277b665260136ea687fd48c6332c40daa237))
+
 ## [0.5.0](https://github.com/ocavue/utils/compare/v0.4.0...v0.5.0) (2025-06-04)
 
 
