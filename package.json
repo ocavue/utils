@@ -46,18 +46,18 @@
     "typecheck": "tsc -b"
   },
   "devDependencies": {
-    "@ocavue/eslint-config": "^3.1.1",
+    "@ocavue/eslint-config": "^3.2.0",
     "@ocavue/tsconfig": "^0.3.7",
     "@size-limit/preset-small-lib": "^11.2.0",
     "@types/node": "^20.17.27",
-    "eslint": "^9.23.0",
-    "jsdom": "^26.0.0",
-    "prettier": "^3.5.3",
+    "eslint": "^9.31.0",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.6.2",
     "size-limit": "^11.2.0",
     "tsup": "^8.5.0",
-    "typescript": "^5.7.2",
-    "vite": "^6.0.12",
-    "vitest": "^3.0.9"
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4"
   },
   "publishConfig": {
     "access": "public"
