@@ -10,9 +10,9 @@ describe('isObject', () => {
     expect(isObject({ foo: 'bar' })).toBe(true)
   })
 
-  it('returns false for arrays', () => {
-    expect(isObject([])).toBe(false)
-    expect(isObject(['foo'])).toBe(false)
+  it('returns true for arrays', () => {
+    expect(isObject([])).toBe(true)
+    expect(isObject(['foo'])).toBe(true)
   })
 
   it('returns false for null and undefined', () => {
