@@ -6,10 +6,10 @@ import { formatBytes } from './format-bytes'
 
 describe('formatBytes', () => {
   it('formats bytes correctly', () => {
-    expect(formatBytes(0)).toBe('0.0B')
-    expect(formatBytes(100)).toBe('100.0B')
-    expect(formatBytes(512)).toBe('512.0B')
-    expect(formatBytes(1023)).toBe('1023.0B')
+    expect(formatBytes(0)).toBe('0B')
+    expect(formatBytes(100)).toBe('100B')
+    expect(formatBytes(512)).toBe('512B')
+    expect(formatBytes(1023)).toBe('1023B')
   })
 
   it('formats kilobytes correctly', () => {
@@ -38,7 +38,7 @@ describe('formatBytes', () => {
   })
 
   it('handles negative numbers', () => {
-    expect(formatBytes(-100)).toBe('-100.0B')
+    expect(formatBytes(-100)).toBe('-100B')
     expect(formatBytes(-1024)).toBe('-1.0KB')
     expect(formatBytes(-1024 * 1024)).toBe('-1.0MB')
     expect(formatBytes(-1024 * 1024 * 1024)).toBe('-1.0GB')

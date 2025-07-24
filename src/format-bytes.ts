@@ -6,10 +6,11 @@
 export function formatBytes(bytes: number): string {
   const units = ['B', 'KB', 'MB', 'GB']
   let unitIndex = 0
-  let value = bytes
-  while (Math.abs(value) >= 1024 && unitIndex < units.length - 1) {
-    value /= 1024
+  let num = bytes
+  while (Math.abs(num) >= 1024 && unitIndex < units.length - 1) {
+    num /= 1024
     unitIndex++
   }
-  return `${value.toFixed(1)}${units[unitIndex]}`
+  const fraction = unitIndex === 0 && num % 1 === 0 ? 0 : 1
+  return `${num.toFixed(fraction)}${units[unitIndex]}`
 }
