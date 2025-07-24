@@ -4,6 +4,10 @@
 
 A collection of utility functions.
 
+## [API Reference](https://doc.deno.land/https://esm.sh/@ocavue/utils)
+
+## [Changelog](https://github.com/ocavue/utils/releases)
+
 ## License
 
 MIT
