@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/ocavue/utils/compare/v0.6.0...v0.7.0) (2025-08-04)
+
+
+### Features
+
+* add `getId` ([#18](https://github.com/ocavue/utils/issues/18)) ([0e0c03f](https://github.com/ocavue/utils/commit/0e0c03fc45ffd8a5021caab059ea40b0b858bc51))
+
 ## [0.6.0](https://github.com/ocavue/utils/compare/v0.5.0...v0.6.0) (2025-07-24)
 
 
