@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/ocavue/utils/compare/v0.7.0...v0.7.1) (2025-08-04)
+
+
+### Miscellaneous Chores
+
+* release 0.7.1 ([3887738](https://github.com/ocavue/utils/commit/388773807f223f233c8a085b266c7ecf12dd7ef3))
+
 ## [0.7.0](https://github.com/ocavue/utils/compare/v0.6.0...v0.7.0) (2025-08-04)
 
 
