@@ -1,4 +1,5 @@
 export * from './checker'
 export * from './dom'
-export { once } from './once'
 export { formatBytes } from './format-bytes'
+export { getId } from './get-id'
+export { once } from './once'
