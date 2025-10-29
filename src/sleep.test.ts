@@ -15,7 +15,9 @@ describe('sleep', () => {
     await Promise.resolve() // flush microtasks
 
     let resolved = false
-    void promise.then(() => { resolved = true })
+    void promise.then(() => {
+      resolved = true
+    })
     await Promise.resolve() // flush microtasks
     expect(resolved).toBe(false)
 
