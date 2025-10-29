@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/ocavue/utils/compare/v0.7.1...v0.8.0) (2025-10-29)
+
+
+### Features
+
+* add `sleep` ([338955b](https://github.com/ocavue/utils/commit/338955b6702575e74f833ed99fa992586df15b61))
+
 ## [0.7.1](https://github.com/ocavue/utils/compare/v0.7.0...v0.7.1) (2025-08-04)
 
 
