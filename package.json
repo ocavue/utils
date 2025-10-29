@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.7.1",
   "packageManager": "pnpm@10.20.0",
-  "description": "",
+  "description": "A collection of utility functions for the browser and other environments",
   "author": "ocavue <ocavue@gmail.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/ocavue",
