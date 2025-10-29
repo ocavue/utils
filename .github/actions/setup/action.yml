@@ -5,7 +5,7 @@ inputs:
   node-version:
     description: The version of node.js
     required: false
-    default: '24'
+    default: '20'
 
 runs:
   using: composite
@@ -23,4 +23,10 @@ runs:
 
     - name: Install
       run: pnpm install
+      shell: bash
+
+    # Update npm to use OIDC publishing
+    # https://docs.npmjs.com/trusted-publishers
+    - name: Update npm
+      run: npm install -g npm@latest
       shell: bash
