@@ -51,6 +51,7 @@
     "@ocavue/tsconfig": "^0.5.0",
     "@size-limit/preset-small-lib": "^11.2.0",
     "@types/node": "^24.9.2",
+    "@vitest/coverage-v8": "4.0.4",
     "eslint": "^9.38.0",
     "jsdom": "^27.0.1",
     "prettier": "^3.6.2",
