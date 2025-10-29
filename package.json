@@ -2,8 +2,8 @@
   "name": "@ocavue/utils",
   "type": "module",
   "version": "0.7.1",
-  "packageManager": "pnpm@9.15.9",
-  "description": "",
+  "packageManager": "pnpm@10.20.0",
+  "description": "A collection of utility functions for the browser and other environments",
   "author": "ocavue <ocavue@gmail.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/ocavue",
@@ -34,11 +34,12 @@
     }
   },
   "files": [
+    "src",
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "tsdown",
+    "dev": "tsdown --watch",
     "lint": "eslint .",
     "fix": "eslint --fix . && prettier --write .",
     "prepublishOnly": "pnpm run build",
@@ -46,18 +47,18 @@
     "typecheck": "tsc -b"
   },
   "devDependencies": {
-    "@ocavue/eslint-config": "^3.2.0",
-    "@ocavue/tsconfig": "^0.3.7",
+    "@ocavue/eslint-config": "^3.6.1",
+    "@ocavue/tsconfig": "^0.5.0",
     "@size-limit/preset-small-lib": "^11.2.0",
-    "@types/node": "^20.17.27",
-    "eslint": "^9.31.0",
-    "jsdom": "^26.1.0",
+    "@types/node": "^24.9.2",
+    "eslint": "^9.38.0",
+    "jsdom": "^27.0.1",
     "prettier": "^3.6.2",
     "size-limit": "^11.2.0",
-    "tsup": "^8.5.0",
-    "typescript": "^5.8.3",
-    "vite": "^6.3.5",
-    "vitest": "^3.2.4"
+    "tsdown": "^0.15.11",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12",
+    "vitest": "^4.0.4"
   },
   "publishConfig": {
     "access": "public"
