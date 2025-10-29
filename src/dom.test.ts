@@ -3,6 +3,8 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  getDocument,
+  getDocumentElement,
   getWindow,
   isDocument,
   isDocumentFragment,
@@ -175,5 +177,79 @@ describe('getWindow', () => {
     const div = document.createElement('div')
     const shadowRoot = div.attachShadow({ mode: 'open' })
     expect(getWindow(shadowRoot)).toBe(window)
+  })
+
+  it('returns fallback window when document.defaultView is null', () => {
+    const doc = {} as Document
+    Object.defineProperty(doc, 'nodeType', { value: 9 }) // DOCUMENT_NODE
+    Object.defineProperty(doc, 'defaultView', { value: null })
+    expect(getWindow(doc)).toBe(window)
+  })
+
+  it('returns fallback window when element.ownerDocument is null', () => {
+    const el = {} as Element
+    Object.defineProperty(el, 'nodeType', { value: 1 }) // ELEMENT_NODE
+    Object.defineProperty(el, 'ownerDocument', { value: null })
+    expect(getWindow(el)).toBe(window)
+  })
+
+  it('returns fallback window when element.ownerDocument.defaultView is null', () => {
+    const doc = {} as Document
+    Object.defineProperty(doc, 'nodeType', { value: 9 }) // DOCUMENT_NODE
+    Object.defineProperty(doc, 'defaultView', { value: null })
+
+    const el = {} as Element
+    Object.defineProperty(el, 'nodeType', { value: 1 }) // ELEMENT_NODE
+    Object.defineProperty(el, 'ownerDocument', { value: doc })
+    expect(getWindow(el)).toBe(window)
+  })
+
+  it('returns window for text node', () => {
+    const text = document.createTextNode('hello')
+    expect(getWindow(text)).toBe(window)
+  })
+})
+
+describe('getDocument', () => {
+  it('returns document when no target is provided', () => {
+    expect(getDocument()).toBe(document)
+  })
+
+  it('returns document for window', () => {
+    expect(getDocument(window)).toBe(document)
+  })
+
+  it('returns document when passed a document', () => {
+    expect(getDocument(document)).toBe(document)
+  })
+
+  it('returns ownerDocument for element', () => {
+    const div = document.createElement('div')
+    expect(getDocument(div)).toBe(document)
+  })
+
+  it('returns fallback document when element.ownerDocument is null', () => {
+    const node = {} as Node
+    Object.defineProperty(node, 'ownerDocument', { value: null })
+    expect(getDocument(node)).toBe(document)
+  })
+})
+
+describe('getDocumentElement', () => {
+  it('returns documentElement when no target is provided', () => {
+    expect(getDocumentElement()).toBe(document.documentElement)
+  })
+
+  it('returns documentElement for element', () => {
+    const div = document.createElement('div')
+    expect(getDocumentElement(div)).toBe(document.documentElement)
+  })
+
+  it('returns documentElement for window', () => {
+    expect(getDocumentElement(window)).toBe(document.documentElement)
+  })
+
+  it('returns documentElement for document', () => {
+    expect(getDocumentElement(document)).toBe(document.documentElement)
   })
 })
