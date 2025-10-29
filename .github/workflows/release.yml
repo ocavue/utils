@@ -30,6 +30,3 @@ jobs:
 
       - name: Build
         run: pnpm run build
-
-      - name: Publish to NPM
-        run: pnpm publish
