@@ -37,8 +37,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "tsdown",
+    "dev": "tsdown --watch",
     "lint": "eslint .",
     "fix": "eslint --fix . && prettier --write .",
     "prepublishOnly": "pnpm run build",
@@ -55,7 +55,6 @@
     "prettier": "^3.6.2",
     "size-limit": "^11.2.0",
     "tsdown": "^0.15.11",
-    "tsup": "^8.5.0",
     "typescript": "^5.9.3",
     "vite": "^7.1.12",
     "vitest": "^4.0.4"
