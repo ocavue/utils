@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.1](https://github.com/ocavue/utils/compare/v0.8.0...v0.8.1) (2025-10-29)
+
+
+### Continuous Integration
+
+* fix release workflow ([#31](https://github.com/ocavue/utils/issues/31)) ([58f0c7b](https://github.com/ocavue/utils/commit/58f0c7b5bfd1fb9ae0c2535c744c75e230b6474a))
+
 ## [0.8.0](https://github.com/ocavue/utils/compare/v0.7.1...v0.8.0) (2025-10-29)
 
 
