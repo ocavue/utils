@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.0](https://github.com/ocavue/utils/compare/v0.9.0...v1.0.0) (2025-11-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* add `isDeepEqual` ([#39](https://github.com/ocavue/utils/issues/39))
+
+### Features
+
+* add `isDeepEqual` ([#39](https://github.com/ocavue/utils/issues/39)) ([2249fd4](https://github.com/ocavue/utils/commit/2249fd433f0fdaa66afab6a63c51a9dd9a99b606))
+
 ## [0.9.0](https://github.com/ocavue/utils/compare/v0.8.1...v0.9.0) (2025-11-25)
 
 
