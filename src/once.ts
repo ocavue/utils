@@ -10,6 +10,8 @@
  * getValue() // executes expensiveOperation
  * getValue() // returns cached result
  * ```
+ * 
+ * @__NO_SIDE_EFFECTS__
  */
 export function once<T>(fn: () => T): () => T {
   let called = false
