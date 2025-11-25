@@ -39,7 +39,6 @@ export function isDeepEqual(a: unknown, b: unknown): boolean {
     return true
   }
 
-  // Check Set before generic object check since Set is an object
   if (isSet(a)) {
     if (!isSet(b)) {
       return false
@@ -55,7 +54,6 @@ export function isDeepEqual(a: unknown, b: unknown): boolean {
     return true
   }
 
-  // Check Map before generic object check since Map is an object
   if (isMap(a)) {
     if (!isMap(b)) {
       return false
