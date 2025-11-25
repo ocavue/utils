@@ -2,7 +2,7 @@
 
 import { describe, expect, it } from 'vitest'
 
-import { isObject } from './checker'
+import { isMap, isObject, isSet } from './checker'
 
 describe('isObject', () => {
   it('returns true for plain objects', () => {
@@ -36,5 +36,39 @@ describe('isObject', () => {
   it('returns true for class instances', () => {
     class TestClass {}
     expect(isObject(new TestClass())).toBe(true)
+  })
+})
+
+describe('isMap', () => {
+  it('returns true for Map instances', () => {
+    expect(isMap(new Map())).toBe(true)
+    expect(isMap(new Map([['key', 'value']]))).toBe(true)
+  })
+
+  it('returns false for non-Map values', () => {
+    expect(isMap({})).toBe(false)
+    expect(isMap([])).toBe(false)
+    expect(isMap(new Set())).toBe(false)
+    expect(isMap(null)).toBe(false)
+    expect(isMap(undefined)).toBe(false)
+    expect(isMap('map')).toBe(false)
+    expect(isMap(42)).toBe(false)
+  })
+})
+
+describe('isSet', () => {
+  it('returns true for Set instances', () => {
+    expect(isSet(new Set())).toBe(true)
+    expect(isSet(new Set([1, 2, 3]))).toBe(true)
+  })
+
+  it('returns false for non-Set values', () => {
+    expect(isSet({})).toBe(false)
+    expect(isSet([])).toBe(false)
+    expect(isSet(new Map())).toBe(false)
+    expect(isSet(null)).toBe(false)
+    expect(isSet(undefined)).toBe(false)
+    expect(isSet('set')).toBe(false)
+    expect(isSet(42)).toBe(false)
   })
 })
