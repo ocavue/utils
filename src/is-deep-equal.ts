@@ -23,13 +23,51 @@ export function isDeepEqual(a: unknown, b: unknown): boolean {
     return true
   }
 
-  if (Array.isArray(a) && Array.isArray(b)) {
+  if (Array.isArray(a)) {
+    if (!Array.isArray(b)) {
+      return false
+    }
     if (a.length !== b.length) {
       return false
     }
     const size = a.length
     for (let i = 0; i < size; i++) {
       if (!isDeepEqual(a[i], b[i])) {
+        return false
+      }
+    }
+    return true
+  }
+
+  // Check Set before generic object check since Set is an object
+  if (isSet(a)) {
+    if (!isSet(b)) {
+      return false
+    }
+    if (a.size !== b.size) {
+      return false
+    }
+    for (const value of a) {
+      if (!b.has(value)) {
+        return false
+      }
+    }
+    return true
+  }
+
+  // Check Map before generic object check since Map is an object
+  if (isMap(a)) {
+    if (!isMap(b)) {
+      return false
+    }
+    if (a.size !== b.size) {
+      return false
+    }
+    for (const key of a.keys()) {
+      if (!b.has(key)) {
+        return false
+      }
+      if (!isDeepEqual(a.get(key), b.get(key))) {
         return false
       }
     }
@@ -49,31 +87,6 @@ export function isDeepEqual(a: unknown, b: unknown): boolean {
           (b as Record<string, unknown>)[key],
         )
       ) {
-        return false
-      }
-    }
-    return true
-  }
-
-  if (isSet(a) && isSet(b)) {
-    if (a.size !== b.size) {
-      return false
-    }
-    for (const value of a) {
-      if (!b.has(value)) {
-        return false
-      }
-    }
-    return true
-  }
-
-  if (isMap(a) && isMap(b)) {
-    if (a.size !== b.size) {
-      return false
-    }
-    const aKeys = Array.from(a.keys())
-    for (const key of aKeys) {
-      if (!isDeepEqual(a.get(key), b.get(key))) {
         return false
       }
     }
