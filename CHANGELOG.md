@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/ocavue/utils/compare/v0.8.1...v0.9.0) (2025-11-25)
+
+
+### Features
+
+* add `DefaultMap` ([#37](https://github.com/ocavue/utils/issues/37)) ([516a9e0](https://github.com/ocavue/utils/commit/516a9e0afb706ab1d5e59275a7864e6bed42c745))
+
 ## [0.8.1](https://github.com/ocavue/utils/compare/v0.8.0...v0.8.1) (2025-10-29)
 
 
