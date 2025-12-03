@@ -66,14 +66,14 @@
   "publishConfig": {
     "access": "public"
   },
-  "size-limit": [
-    {
-      "path": "dist/index.js"
-    }
-  ],
   "renovate": {
     "extends": [
       "github>ocavue/config-renovate"
     ]
-  }
+  },
+  "size-limit": [
+    {
+      "path": "dist/index.js"
+    }
+  ]
 }
