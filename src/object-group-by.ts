@@ -20,6 +20,18 @@ export function objectGroupByPolyfill<K extends PropertyKey, T>(
   return result
 }
 
+
+/**
+ * @internal
+ */
+export function objectGroupByNative<K extends PropertyKey, T>(
+  items: Iterable<T>,
+  keySelector: (item: T, index: number) => K,
+): Partial<Record<K, T[]>> {
+  return Object.groupBy(items, keySelector)
+}
+
+
 /**
  * A polyfill for the `Object.groupBy` static method.
  * 
@@ -28,6 +40,6 @@ export function objectGroupByPolyfill<K extends PropertyKey, T>(
 export const objectGroupBy: <K extends PropertyKey, T>(
   items: Iterable<T>,
   keySelector: (item: T, index: number) => K,
-) => Partial<Record<K, T[]>> = Object.groupBy
-  ? (items, keySelector) => Object.groupBy(items, keySelector)
+) => Partial<Record<K, T[]>> = !!Object.groupBy
+  ? objectGroupByNative
   : objectGroupByPolyfill

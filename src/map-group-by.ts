@@ -20,14 +20,26 @@ export function mapGroupByPolyfill<K, T>(
   return map
 }
 
+
+/**
+ * @internal
+ */
+export function mapGroupByNative<K, T>(
+  items: Iterable<T>,
+  keySelector: (item: T, index: number) => K,
+): Map<K, T[]> {
+  return Map.groupBy(items, keySelector)
+}
+
+
 /**
  * A polyfill for the `Map.groupBy` static method.
- * 
+ *
  * @public
  */
 export const mapGroupBy: <K, T>(
   items: Iterable<T>,
   keySelector: (item: T, index: number) => K,
-) => Map<K, T[]> = Map.groupBy
-  ? (items, keySelector) => Map.groupBy(items, keySelector)
+) => Map<K, T[]> = !!Map.groupBy
+  ? mapGroupByNative
   : mapGroupByPolyfill
