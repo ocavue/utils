@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ocavue/utils/compare/v1.0.0...v1.1.0) (2025-12-03)
+
+
+### Features
+
+* add `mapGroupBy` and `objectGroupBy` ([#41](https://github.com/ocavue/utils/issues/41)) ([83e6b52](https://github.com/ocavue/utils/commit/83e6b52200b963d676cf1e91811a9f11f8499719))
+
 ## [1.0.0](https://github.com/ocavue/utils/compare/v0.9.0...v1.0.0) (2025-11-25)
 
 
