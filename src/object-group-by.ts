@@ -20,7 +20,6 @@ export function objectGroupByPolyfill<K extends PropertyKey, T>(
   return result
 }
 
-
 /**
  * @internal
  */
@@ -31,10 +30,9 @@ export function objectGroupByNative<K extends PropertyKey, T>(
   return Object.groupBy(items, keySelector)
 }
 
-
 /**
  * A polyfill for the `Object.groupBy` static method.
- * 
+ *
  * @public
  */
 export const objectGroupBy: <K extends PropertyKey, T>(

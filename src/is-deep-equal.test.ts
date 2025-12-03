@@ -59,8 +59,30 @@ describe('isDeepEqual', () => {
     })
 
     it('handles nested arrays', () => {
-      expect(isDeepEqual([[1, 2], [3, 4]], [[1, 2], [3, 4]])).toBe(true)
-      expect(isDeepEqual([[1, 2], [3, 4]], [[1, 2], [3, 5]])).toBe(false)
+      expect(
+        isDeepEqual(
+          [
+            [1, 2],
+            [3, 4],
+          ],
+          [
+            [1, 2],
+            [3, 4],
+          ],
+        ),
+      ).toBe(true)
+      expect(
+        isDeepEqual(
+          [
+            [1, 2],
+            [3, 4],
+          ],
+          [
+            [1, 2],
+            [3, 5],
+          ],
+        ),
+      ).toBe(false)
     })
   })
 
@@ -105,9 +127,7 @@ describe('isDeepEqual', () => {
 
     it('returns false for sets with different values', () => {
       expect(isDeepEqual(new Set([1, 2, 3]), new Set([1, 2, 4]))).toBe(false)
-      expect(isDeepEqual(new Set(['a', 'b']), new Set(['a', 'c']))).toBe(
-        false,
-      )
+      expect(isDeepEqual(new Set(['a', 'b']), new Set(['a', 'c']))).toBe(false)
     })
 
     it('handles set order independence', () => {
@@ -145,44 +165,28 @@ describe('isDeepEqual', () => {
     })
 
     it('returns false for maps with different keys', () => {
-      expect(
-        isDeepEqual(new Map([['a', 1]]), new Map([['b', 1]])),
-      ).toBe(false)
+      expect(isDeepEqual(new Map([['a', 1]]), new Map([['b', 1]]))).toBe(false)
     })
 
     it('returns false for maps with different values', () => {
-      expect(
-        isDeepEqual(new Map([['a', 1]]), new Map([['a', 2]])),
-      ).toBe(false)
+      expect(isDeepEqual(new Map([['a', 1]]), new Map([['a', 2]]))).toBe(false)
     })
 
     it('handles nested values in maps', () => {
       expect(
-        isDeepEqual(
-          new Map([['a', { b: 1 }]]),
-          new Map([['a', { b: 1 }]]),
-        ),
+        isDeepEqual(new Map([['a', { b: 1 }]]), new Map([['a', { b: 1 }]])),
       ).toBe(true)
       expect(
-        isDeepEqual(
-          new Map([['a', { b: 1 }]]),
-          new Map([['a', { b: 2 }]]),
-        ),
+        isDeepEqual(new Map([['a', { b: 1 }]]), new Map([['a', { b: 2 }]])),
       ).toBe(false)
     })
 
     it('handles arrays as map values', () => {
       expect(
-        isDeepEqual(
-          new Map([['a', [1, 2, 3]]]),
-          new Map([['a', [1, 2, 3]]]),
-        ),
+        isDeepEqual(new Map([['a', [1, 2, 3]]]), new Map([['a', [1, 2, 3]]])),
       ).toBe(true)
       expect(
-        isDeepEqual(
-          new Map([['a', [1, 2, 3]]]),
-          new Map([['a', [1, 2, 4]]]),
-        ),
+        isDeepEqual(new Map([['a', [1, 2, 3]]]), new Map([['a', [1, 2, 4]]])),
       ).toBe(false)
     })
   })

@@ -1,6 +1,10 @@
 import { describe, it, expect } from 'vitest'
 
-import { objectGroupBy, objectGroupByPolyfill, objectGroupByNative } from './object-group-by'
+import {
+  objectGroupBy,
+  objectGroupByPolyfill,
+  objectGroupByNative,
+} from './object-group-by'
 
 describe.each([
   { name: 'objectGroupBy', fn: objectGroupBy },

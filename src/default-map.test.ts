@@ -144,10 +144,13 @@ describe('DefaultMap', () => {
   })
 
   it('works with iteration methods', () => {
-    const map = new DefaultMap<string, number>(() => 0, [
-      ['a', 1],
-      ['b', 2],
-    ])
+    const map = new DefaultMap<string, number>(
+      () => 0,
+      [
+        ['a', 1],
+        ['b', 2],
+      ],
+    )
 
     expect([...map.keys()]).toEqual(['a', 'b'])
     expect([...map.values()]).toEqual([1, 2])

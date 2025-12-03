@@ -1,6 +1,10 @@
 import { describe, it, expect } from 'vitest'
 
-import { mapGroupBy, mapGroupByPolyfill, mapGroupByNative } from './map-group-by'
+import {
+  mapGroupBy,
+  mapGroupByPolyfill,
+  mapGroupByNative,
+} from './map-group-by'
 
 describe.each([
   { name: 'mapGroupBy', fn: mapGroupBy },
