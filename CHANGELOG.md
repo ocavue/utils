@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/ocavue/utils/compare/v1.1.0...v1.2.0) (2025-12-03)
+
+
+### Features
+
+* add `mapValues` ([#44](https://github.com/ocavue/utils/issues/44)) ([73b50a7](https://github.com/ocavue/utils/commit/73b50a72f1fa34fa91134ee50febdae49c62b50c))
+* add `objectEntries` ([#43](https://github.com/ocavue/utils/issues/43)) ([7e896ca](https://github.com/ocavue/utils/commit/7e896ca2c73afb58f0589923b5f5b7e37bffaf29))
+
 ## [1.1.0](https://github.com/ocavue/utils/compare/v1.0.0...v1.1.0) (2025-12-03)
 
 
