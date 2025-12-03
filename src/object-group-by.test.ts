@@ -6,11 +6,16 @@ import {
   objectGroupByNative,
 } from './object-group-by'
 
-describe.each([
+const testCases = [
   { name: 'objectGroupBy', fn: objectGroupBy },
   { name: 'objectGroupByPolyfill', fn: objectGroupByPolyfill },
-  { name: 'objectGroupByNative', fn: objectGroupByNative },
-])('$name', ({ fn }) => {
+]
+
+if (!!Object.groupBy) {
+  testCases.push({ name: 'objectGroupByNative', fn: objectGroupByNative })
+}
+
+describe.each(testCases)('$name', ({ fn }) => {
   it('groups items by key', () => {
     const items = [1, 2, 3, 4, 5, 6]
     const result = fn(items, (item) => (item % 2 === 0 ? 'even' : 'odd'))

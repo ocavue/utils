@@ -6,11 +6,16 @@ import {
   mapGroupByNative,
 } from './map-group-by'
 
-describe.each([
+const testCases = [
   { name: 'mapGroupBy', fn: mapGroupBy },
   { name: 'mapGroupByPolyfill', fn: mapGroupByPolyfill },
-  { name: 'mapGroupByNative', fn: mapGroupByNative },
-])('$name', ({ fn }) => {
+]
+
+if (!!Map.groupBy) {
+  testCases.push({ name: 'mapGroupByNative', fn: mapGroupByNative })
+}
+
+describe.each(testCases)('$name', ({ fn }) => {
   it('groups items by key', () => {
     const items = [1, 2, 3, 4, 5, 6]
     const result = fn(items, (item) => item % 2)
