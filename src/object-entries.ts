@@ -12,7 +12,7 @@
  *
  * @public
  */
-export type ObjectEntries<T extends Record<string, unknown>> = {
+export type ObjectEntries<T extends Record<string, any>> = {
   [K in keyof T]: [K, T[K]]
 }[keyof T]
 
@@ -53,6 +53,6 @@ export type ObjectEntries<T extends Record<string, unknown>> = {
  *
  * @public
  */
-export const objectEntries: <T extends Record<string, unknown>>(
+export const objectEntries: <T extends Record<string, any>>(
   obj: T,
 ) => ObjectEntries<T>[] = Object.entries
