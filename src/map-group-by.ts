@@ -30,6 +30,8 @@ export function mapGroupByNative<K, T>(
   return Map.groupBy(items, keySelector)
 }
 
+const hasMapGroupBy: boolean = /* @__PURE__ */ (() => !!Map.groupBy)()
+
 /**
  * A polyfill for the `Map.groupBy` static method.
  *
@@ -38,4 +40,4 @@ export function mapGroupByNative<K, T>(
 export const mapGroupBy: <K, T>(
   items: Iterable<T>,
   keySelector: (item: T, index: number) => K,
-) => Map<K, T[]> = !!Map.groupBy ? mapGroupByNative : mapGroupByPolyfill
+) => Map<K, T[]> = hasMapGroupBy ? mapGroupByNative : mapGroupByPolyfill
