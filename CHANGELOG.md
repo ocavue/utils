@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/ocavue/utils/compare/v1.2.0...v1.2.1) (2025-12-25)
+
+
+### Bug Fixes
+
+* improve maximum safe integer limit ([#50](https://github.com/ocavue/utils/issues/50)) ([2201985](https://github.com/ocavue/utils/commit/22019850b3d75b507c28503ba9fc6504807734e0))
+* improve tree shaking ([#54](https://github.com/ocavue/utils/issues/54)) ([27f5ae1](https://github.com/ocavue/utils/commit/27f5ae1a8955c59c0d309a8255b8acbdd53c77db))
+
 ## [1.2.0](https://github.com/ocavue/utils/compare/v1.1.0...v1.2.0) (2025-12-03)
 
 
