@@ -1,1 +1,1 @@
-export { fn3 } from './stub-once.js'
+export { fn4 } from './stub-once.js'

@@ -1,4 +1,4 @@
-import { once } from '@ocavue/utils'
+  import { once } from '@ocavue/utils'
 
 // A function that is not wrapped by `once()`
 export function fn1() {
