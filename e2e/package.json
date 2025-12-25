@@ -13,6 +13,7 @@
         "@ocavue/utils": "workspace:*"
     },
     "devDependencies": {
+        "@rollup/plugin-node-resolve": "^16.0.3",
         "esbuild": "^0.27.2",
         "rolldown": "1.0.0-beta.57",
         "rollup": "^4.54.0"
