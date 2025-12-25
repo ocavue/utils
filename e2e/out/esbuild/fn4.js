@@ -1,1 +1,32 @@
-var y=2**53-1;function c(e,t){let n={},u=0;for(let o of e){let i=t(o,u),f=n[i];f?f.push(o):n[i]=[o],u++}return n}function s(e,t){return Object.groupBy(e,t)}var d=Object.groupBy?s:c;function r(e){let t=!1,n;return()=>(t||(n=e(),t=!0,e=void 0),n)}function l(){console.log("function_2")}var a=r(l);function p(){console.log("function_3")}var g=r(p);function m(){console.log("function_4")}export{m as fn4};
+var y = 2 ** 53 - 1
+function c(e, t) {
+  let n = {},
+    u = 0
+  for (let o of e) {
+    let i = t(o, u),
+      f = n[i]
+    ;(f ? f.push(o) : (n[i] = [o]), u++)
+  }
+  return n
+}
+function s(e, t) {
+  return Object.groupBy(e, t)
+}
+var d = Object.groupBy ? s : c
+function r(e) {
+  let t = !1,
+    n
+  return () => (t || ((n = e()), (t = !0), (e = void 0)), n)
+}
+function l() {
+  console.log('function_2')
+}
+var a = r(l)
+function p() {
+  console.log('function_3')
+}
+var g = r(p)
+function m() {
+  console.log('function_4')
+}
+export { m as fn4 }

@@ -1,1 +1,5 @@
-Map.groupBy,Object.groupBy;function e(){console.log(`function_3`)}export{e as fn3};
+;(Map.groupBy, Object.groupBy)
+function e() {
+  console.log(`function_3`)
+}
+export { e as fn3 }

@@ -55,10 +55,13 @@ async function buildRolldown(entry) {
   const inputPath = path.join(SRC_DIR, entry)
   const outputPath = path.join(OUT_DIR, 'rolldown', entry)
 
-  const bundle = await rolldown.build({
+  await rolldown.build({
     input: inputPath,
-    output: { 
-      file: outputPath, format: 'esm', minify: true },
+    output: {
+      file: outputPath,
+      format: 'esm',
+      minify: true,
+    },
     treeshake: true,
   })
 }

@@ -6,14 +6,15 @@
     "scripts": {
         "pretest": "pnpm -w build",
         "test": "vitest",
-        "build": "node build.js"
+        "build": "node build.js && prettier --write out"
     },
     "dependencies": {
         "@ocavue/utils": "workspace:*"
     },
     "devDependencies": {
         "@rollup/plugin-node-resolve": "^16.0.3",
-        "esbuild": "^0.27.2",
+    "esbuild": "^0.27.2",
+        "prettier": "^3.7.4",
         "rolldown": "1.0.0-beta.57",
         "rollup": "^4.54.0"
     }
