@@ -9,11 +9,10 @@
     "test": "vitest",
     "build": "node build.js && prettier --write dist"
   },
-  "dependencies": {
-    "@ocavue/utils": "workspace:*"
-  },
   "devDependencies": {
+    "@ocavue/utils": "workspace:*",
     "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rslib/core": "^0.18.6",
     "esbuild": "^0.27.2",
     "prettier": "^3.7.4",
     "rolldown": "1.0.0-beta.57",

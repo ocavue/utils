@@ -1,7 +1,10 @@
+// @ts-check
+
 import fs from 'node:fs'
 import path from 'node:path'
 
 import { nodeResolve } from '@rollup/plugin-node-resolve'
+import * as rslib from '@rslib/core'
 import * as esbuild from 'esbuild'
 import * as rolldown from 'rolldown'
 import * as rollup from 'rollup'
@@ -67,6 +70,35 @@ async function buildRolldown(entry) {
   })
 }
 
+/**
+ * @param {string} entry
+ */
+async function buildRslib(entry) {
+  const entryName = entry.replace(/\.js$/, '')
+  const inputFilePath = path.join(SRC_DIR, entry)
+  const outputDirPath = path.join(OUT_DIR, 'rslib')
+
+  await rslib.build({
+    lib: [
+      {
+        bundle: true,
+        format: 'esm',
+        output: {
+          distPath: outputDirPath,
+          cleanDistPath: false,
+          minify: true,
+        },
+        source: {
+          entry: {
+            [entryName]: inputFilePath,
+          },
+        },
+        dts: false,
+      },
+    ],
+  })
+}
+
 async function main() {
   fs.rmSync(OUT_DIR, { recursive: true, force: true })
 
@@ -74,6 +106,7 @@ async function main() {
     await buildEsbuild(entry)
     await buildRollup(entry)
     await buildRolldown(entry)
+    await buildRslib(entry)
   }
 }
 
