@@ -1,6 +1,6 @@
 let id = 0
 
-let MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER
+let maxSafeInteger = Number.MAX_SAFE_INTEGER
 
 /**
  * Sets the maximum safe integer for the id generator. Only for testing purposes.
@@ -8,7 +8,7 @@ let MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER
  * @internal
  */
 export function setMaxSafeInteger(max: number) {
-  MAX_SAFE_INTEGER = max
+  maxSafeInteger = max
 }
 
 /**
@@ -16,7 +16,7 @@ export function setMaxSafeInteger(max: number) {
  */
 export function getId(): number {
   id++
-  if (id >= MAX_SAFE_INTEGER) {
+  if (id >= maxSafeInteger) {
     id = 1
   }
   return id
