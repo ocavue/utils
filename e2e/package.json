@@ -7,7 +7,7 @@
     "scripts": {
         "pretest": "pnpm -w build",
         "test": "vitest",
-        "build": "node build.js && prettier --write out"
+        "build": "node build.js && prettier --write dist"
     },
     "dependencies": {
         "@ocavue/utils": "workspace:*"

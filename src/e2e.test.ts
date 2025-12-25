@@ -8,7 +8,7 @@ import { x } from 'tinyexec'
 import { describe, it, expect, beforeAll } from 'vitest'
 
 const ROOT_DIR = path.join(import.meta.dirname, '..')
-const E2E_OUT_DIR = path.join(ROOT_DIR, 'e2e', 'out')
+const E2E_OUT_DIR = path.join(ROOT_DIR, 'e2e', 'dist')
 
 describe('e2e', () => {
   beforeAll(async () => {

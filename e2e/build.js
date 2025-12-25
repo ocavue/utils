@@ -8,7 +8,7 @@ import * as rollup from 'rollup'
 
 const CWD = import.meta.dirname
 const SRC_DIR = path.join(CWD, 'src')
-const OUT_DIR = path.join(CWD, 'out')
+const OUT_DIR = path.join(CWD, 'dist')
 
 const entries = ['fn1.js', 'fn2.js', 'fn3.js', 'fn4.js']
 
