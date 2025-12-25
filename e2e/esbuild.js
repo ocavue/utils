@@ -12,11 +12,11 @@ const entries = ['fn1.js', 'fn2.js', 'fn3.js', 'fn4.js']
 /**
  * @param {string} entry
  */
-function buildEsbuild(entry) {
+async function buildEsbuild(entry) {
   const inputPath = path.join(SRC_DIR, entry)
   const outputPath = path.join(OUT_DIR, 'esbuild', entry)
 
-  esbuild.build({
+  await esbuild.build({
     entryPoints: [inputPath],
     outfile: outputPath,
     format: 'esm',
