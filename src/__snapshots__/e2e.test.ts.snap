@@ -1,0 +1,231 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`e2e > bundler outputs match snapshot 1`] = `
+"
+################################################################################
+esbuild/fn1.js
+--------------------------------------------------------------------------------
+var y = 2 ** 53 - 1
+function c(e, t) {
+  let n = {},
+    u = 0
+  for (let o of e) {
+    let i = t(o, u),
+      f = n[i]
+    ;(f ? f.push(o) : (n[i] = [o]), u++)
+  }
+  return n
+}
+function s(e, t) {
+  return Object.groupBy(e, t)
+}
+var d = Object.groupBy ? s : c
+function r(e) {
+  let t = !1,
+    n
+  return () => (t || ((n = e()), (t = !0), (e = void 0)), n)
+}
+function l() {
+  console.log('function_1')
+}
+function p() {
+  console.log('function_2')
+}
+var a = r(p)
+function m() {
+  console.log('function_3')
+}
+var g = r(m)
+export { l as fn1 }
+
+
+################################################################################
+esbuild/fn2.js
+--------------------------------------------------------------------------------
+var m = 2 ** 53 - 1
+function s(e, t) {
+  let n = {},
+    u = 0
+  for (let o of e) {
+    let i = t(o, u),
+      f = n[i]
+    ;(f ? f.push(o) : (n[i] = [o]), u++)
+  }
+  return n
+}
+function l(e, t) {
+  return Object.groupBy(e, t)
+}
+var y = Object.groupBy ? l : s
+function r(e) {
+  let t = !1,
+    n
+  return () => (t || ((n = e()), (t = !0), (e = void 0)), n)
+}
+function c() {
+  console.log('function_2')
+}
+var h = r(c)
+function p() {
+  console.log('function_3')
+}
+var a = r(p)
+export { c as fn2 }
+
+
+################################################################################
+esbuild/fn3.js
+--------------------------------------------------------------------------------
+var m = 2 ** 53 - 1
+function s(e, t) {
+  let n = {},
+    u = 0
+  for (let o of e) {
+    let i = t(o, u),
+      f = n[i]
+    ;(f ? f.push(o) : (n[i] = [o]), u++)
+  }
+  return n
+}
+function l(e, t) {
+  return Object.groupBy(e, t)
+}
+var y = Object.groupBy ? l : s
+function r(e) {
+  let t = !1,
+    n
+  return () => (t || ((n = e()), (t = !0), (e = void 0)), n)
+}
+function p() {
+  console.log('function_2')
+}
+var h = r(p)
+function c() {
+  console.log('function_3')
+}
+var a = r(c)
+export { c as fn3 }
+
+
+################################################################################
+esbuild/fn4.js
+--------------------------------------------------------------------------------
+var y = 2 ** 53 - 1
+function c(e, t) {
+  let n = {},
+    u = 0
+  for (let o of e) {
+    let i = t(o, u),
+      f = n[i]
+    ;(f ? f.push(o) : (n[i] = [o]), u++)
+  }
+  return n
+}
+function s(e, t) {
+  return Object.groupBy(e, t)
+}
+var d = Object.groupBy ? s : c
+function r(e) {
+  let t = !1,
+    n
+  return () => (t || ((n = e()), (t = !0), (e = void 0)), n)
+}
+function l() {
+  console.log('function_2')
+}
+var a = r(l)
+function p() {
+  console.log('function_3')
+}
+var g = r(p)
+function m() {
+  console.log('function_4')
+}
+export { m as fn4 }
+
+
+################################################################################
+rolldown/fn1.js
+--------------------------------------------------------------------------------
+;(Map.groupBy, Object.groupBy)
+function e() {
+  console.log(\`function_1\`)
+}
+export { e as fn1 }
+
+
+################################################################################
+rolldown/fn2.js
+--------------------------------------------------------------------------------
+;(Map.groupBy, Object.groupBy)
+function e() {
+  console.log(\`function_2\`)
+}
+export { e as fn2 }
+
+
+################################################################################
+rolldown/fn3.js
+--------------------------------------------------------------------------------
+;(Map.groupBy, Object.groupBy)
+function e() {
+  console.log(\`function_3\`)
+}
+export { e as fn3 }
+
+
+################################################################################
+rolldown/fn4.js
+--------------------------------------------------------------------------------
+;(Map.groupBy, Object.groupBy)
+function e() {
+  console.log(\`function_4\`)
+}
+export { e as fn4 }
+
+
+################################################################################
+rollup/fn1.js
+--------------------------------------------------------------------------------
+// A function that is not wrapped by \`once()\`
+function fn1() {
+  console.log('function_1')
+}
+
+export { fn1 }
+
+
+################################################################################
+rollup/fn2.js
+--------------------------------------------------------------------------------
+// A function that is wrapped by \`once()\`, but the wrapper is not exported
+function fn2() {
+  console.log('function_2')
+}
+
+export { fn2 }
+
+
+################################################################################
+rollup/fn3.js
+--------------------------------------------------------------------------------
+// A function that is wrapped by \`once()\`, and the wrapper is exported
+function fn3() {
+  console.log('function_3')
+}
+
+export { fn3 }
+
+
+################################################################################
+rollup/fn4.js
+--------------------------------------------------------------------------------
+// A function that is wrapped by \`once()\`, but the wrapper is marked as \`__PURE__\`
+function fn4() {
+  console.log('function_4')
+}
+
+export { fn4 }
+
+"
+`;

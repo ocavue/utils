@@ -18,13 +18,17 @@ describe('e2e', () => {
 
   it('bundler outputs match snapshot', async () => {
     const files = await glob('**/*', { cwd: E2E_OUT_DIR, onlyFiles: true })
-    const outputs: Record<string, string> = {}
+    const output  = [""]
 
     for (const file of files.sort()) {
-      outputs[file] = fs.readFileSync(path.join(E2E_OUT_DIR, file), 'utf-8')
+      output.push("#".repeat(80))
+      output.push(file)
+      output.push("-".repeat(80))
+      output.push(fs.readFileSync(path.join(E2E_OUT_DIR, file), 'utf-8'))
+      output.push("")
     }
 
-    expect(outputs).toMatchSnapshot()
+    expect(output.join('\n')).toMatchSnapshot()
   })
 })
 
