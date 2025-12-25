@@ -3,26 +3,33 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const CWD = import.meta.dirname
+const SRC_DIR = path.join(CWD, 'src')
 const OUT_DIR = path.join(CWD, 'out')
 
-const entryPoints = [
-  { input: 'src/fn1.js', output: 'out/fn1.js' },
-  { input: 'src/fn2.js', output: 'out/fn2.js' },
-  { input: 'src/fn3.js', output: 'out/fn3.js' },
-]
+const entries = ['fn1.js', 'fn2.js', 'fn3.js', 'fn4.js']
+
+/**
+ * @param {string} entry
+ */
+function buildEsbuild(entry) {
+  const inputPath = path.join(SRC_DIR, entry)
+  const outputPath = path.join(OUT_DIR, 'esbuild', entry)
+
+  return esbuild.build({
+    entryPoints: [inputPath],
+    outfile: outputPath,
+    format: 'esm',
+    platform: 'neutral',
+    minify: true,
+    bundle: true,
+  })
+}
 
 async function main() {
   fs.rmSync(OUT_DIR, { recursive: true, force: true })
 
-  for (const { input, output } of entryPoints) {
-    await esbuild.build({
-      entryPoints: [input],
-      outfile: output,
-      format: 'esm',
-      platform: 'neutral',
-      minify: true,
-      absWorkingDir: CWD,
-    })
+  for (const entry of entries) {
+    await buildEsbuild(entry)
   }
 }
 

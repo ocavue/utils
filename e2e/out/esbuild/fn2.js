@@ -1,0 +1,1 @@
+var m=2**53-1;function s(e,t){let n={},u=0;for(let o of e){let i=t(o,u),f=n[i];f?f.push(o):n[i]=[o],u++}return n}function l(e,t){return Object.groupBy(e,t)}var y=Object.groupBy?l:s;function r(e){let t=!1,n;return()=>(t||(n=e(),t=!0,e=void 0),n)}function c(){console.log("function_2")}var h=r(c);function p(){console.log("function_3")}var a=r(p);export{c as fn2};
