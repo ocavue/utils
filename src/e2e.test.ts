@@ -3,6 +3,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
+import { glob } from 'tinyglobby'
 import { x } from 'tinyexec'
 import { describe, it, expect, beforeAll } from 'vitest'
 
@@ -15,23 +16,13 @@ describe('e2e', () => {
     await x('pnpm', ['--filter', 'e2e', 'run', 'build'], { nodeOptions: { cwd: ROOT_DIR, stdio: 'inherit' } })
   })
 
-  it('bundler outputs match snapshot', () => {
+  it('bundler outputs match snapshot', async () => {
+    const files = await glob('**/*', { cwd: E2E_OUT_DIR, onlyFiles: true })
     const outputs: Record<string, string> = {}
 
-    function scanDir(dir: string, prefix = '') {
-      const entries = fs.readdirSync(dir, { withFileTypes: true })
-      for (const entry of entries) {
-        const fullPath = path.join(dir, entry.name)
-        const relativePath = path.join(prefix, entry.name)
-        if (entry.isDirectory()) {
-          scanDir(fullPath, relativePath)
-        } else if (entry.isFile()) {
-          outputs[relativePath] = fs.readFileSync(fullPath, 'utf-8')
-       } 
-      }
+    for (const file of files.sort()) {
+      outputs[file] = fs.readFileSync(path.join(E2E_OUT_DIR, file), 'utf-8')
     }
-
-    scanDir(E2E_OUT_DIR)
 
     expect(outputs).toMatchSnapshot()
   })
