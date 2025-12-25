@@ -6,8 +6,7 @@
     "scripts": {
         "pretest": "pnpm -w build",
         "test": "vitest",
-        "build": "pnpm run build:esbuild",
-        "build:esbuild": "node esbuild.js"
+        "build": "node build.js"
     },
     "dependencies": {
         "@ocavue/utils": "workspace:*"
