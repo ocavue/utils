@@ -5,149 +5,92 @@ exports[`e2e > bundler outputs match snapshot 1`] = `
 ################################################################################
 esbuild/fn1.js
 --------------------------------------------------------------------------------
-var y = 2 ** 53 - 1
-function c(e, t) {
-  let n = {},
-    u = 0
-  for (let o of e) {
-    let i = t(o, u),
-      f = n[i]
-    ;(f ? f.push(o) : (n[i] = [o]), u++)
-  }
-  return n
+var f = 2 ** 53 - 1
+function e(t) {
+  let n = !1,
+    o
+  return () => (n || ((o = t()), (n = !0), (t = void 0)), o)
 }
-function s(e, t) {
-  return Object.groupBy(e, t)
-}
-var d = Object.groupBy ? s : c
-function r(e) {
-  let t = !1,
-    n
-  return () => (t || ((n = e()), (t = !0), (e = void 0)), n)
-}
-function l() {
+function r() {
   console.log('function_1')
 }
-function p() {
+function u() {
   console.log('function_2')
 }
-var a = r(p)
-function m() {
+var l = e(u)
+function i() {
   console.log('function_3')
 }
-var g = r(m)
-export { l as fn1 }
+var p = e(i)
+export { r as fn1 }
 
 
 ################################################################################
 esbuild/fn2.js
 --------------------------------------------------------------------------------
-var m = 2 ** 53 - 1
-function s(e, t) {
-  let n = {},
-    u = 0
-  for (let o of e) {
-    let i = t(o, u),
-      f = n[i]
-    ;(f ? f.push(o) : (n[i] = [o]), u++)
-  }
-  return n
+var i = 2 ** 53 - 1
+function e(t) {
+  let n = !1,
+    o
+  return () => (n || ((o = t()), (n = !0), (t = void 0)), o)
 }
-function l(e, t) {
-  return Object.groupBy(e, t)
-}
-var y = Object.groupBy ? l : s
-function r(e) {
-  let t = !1,
-    n
-  return () => (t || ((n = e()), (t = !0), (e = void 0)), n)
-}
-function c() {
+function r() {
   console.log('function_2')
 }
-var h = r(c)
-function p() {
+var s = e(r)
+function u() {
   console.log('function_3')
 }
-var a = r(p)
-export { c as fn2 }
+var l = e(u)
+export { r as fn2 }
 
 
 ################################################################################
 esbuild/fn3.js
 --------------------------------------------------------------------------------
-var m = 2 ** 53 - 1
-function s(e, t) {
-  let n = {},
-    u = 0
-  for (let o of e) {
-    let i = t(o, u),
-      f = n[i]
-    ;(f ? f.push(o) : (n[i] = [o]), u++)
-  }
-  return n
+var i = 2 ** 53 - 1
+function e(t) {
+  let n = !1,
+    o
+  return () => (n || ((o = t()), (n = !0), (t = void 0)), o)
 }
-function l(e, t) {
-  return Object.groupBy(e, t)
-}
-var y = Object.groupBy ? l : s
-function r(e) {
-  let t = !1,
-    n
-  return () => (t || ((n = e()), (t = !0), (e = void 0)), n)
-}
-function p() {
+function u() {
   console.log('function_2')
 }
-var h = r(p)
-function c() {
+var s = e(u)
+function r() {
   console.log('function_3')
 }
-var a = r(c)
-export { c as fn3 }
+var l = e(r)
+export { r as fn3 }
 
 
 ################################################################################
 esbuild/fn4.js
 --------------------------------------------------------------------------------
-var y = 2 ** 53 - 1
-function c(e, t) {
-  let n = {},
-    u = 0
-  for (let o of e) {
-    let i = t(o, u),
-      f = n[i]
-    ;(f ? f.push(o) : (n[i] = [o]), u++)
-  }
-  return n
+var f = 2 ** 53 - 1
+function e(t) {
+  let n = !1,
+    o
+  return () => (n || ((o = t()), (n = !0), (t = void 0)), o)
 }
-function s(e, t) {
-  return Object.groupBy(e, t)
-}
-var d = Object.groupBy ? s : c
-function r(e) {
-  let t = !1,
-    n
-  return () => (t || ((n = e()), (t = !0), (e = void 0)), n)
-}
-function l() {
+function r() {
   console.log('function_2')
 }
-var a = r(l)
-function p() {
+var l = e(r)
+function u() {
   console.log('function_3')
 }
-var g = r(p)
-function m() {
+var p = e(u)
+function i() {
   console.log('function_4')
 }
-export { m as fn4 }
+export { i as fn4 }
 
 
 ################################################################################
 rolldown/fn1.js
 --------------------------------------------------------------------------------
-;(Map.groupBy, Object.groupBy)
 function e() {
   console.log(\`function_1\`)
 }
@@ -157,7 +100,6 @@ export { e as fn1 }
 ################################################################################
 rolldown/fn2.js
 --------------------------------------------------------------------------------
-;(Map.groupBy, Object.groupBy)
 function e() {
   console.log(\`function_2\`)
 }
@@ -167,7 +109,6 @@ export { e as fn2 }
 ################################################################################
 rolldown/fn3.js
 --------------------------------------------------------------------------------
-;(Map.groupBy, Object.groupBy)
 function e() {
   console.log(\`function_3\`)
 }
@@ -177,7 +118,6 @@ export { e as fn3 }
 ################################################################################
 rolldown/fn4.js
 --------------------------------------------------------------------------------
-;(Map.groupBy, Object.groupBy)
 function e() {
   console.log(\`function_4\`)
 }

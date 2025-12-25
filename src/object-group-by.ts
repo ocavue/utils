@@ -30,6 +30,8 @@ export function objectGroupByNative<K extends PropertyKey, T>(
   return Object.groupBy(items, keySelector)
 }
 
+const hasObjectGroupBy: boolean = /* @__PURE__ */ (() => !!Object.groupBy)()
+
 /**
  * A polyfill for the `Object.groupBy` static method.
  *
@@ -38,6 +40,6 @@ export function objectGroupByNative<K extends PropertyKey, T>(
 export const objectGroupBy: <K extends PropertyKey, T>(
   items: Iterable<T>,
   keySelector: (item: T, index: number) => K,
-) => Partial<Record<K, T[]>> = !!Object.groupBy
+) => Partial<Record<K, T[]>> = hasObjectGroupBy
   ? objectGroupByNative
   : objectGroupByPolyfill
