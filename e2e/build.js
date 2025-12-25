@@ -2,6 +2,7 @@ import * as esbuild from 'esbuild'
 import * as rollup from 'rollup'
 import fs from 'node:fs'
 import path from 'node:path'
+import * as rolldown from 'rolldown'
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 const CWD = import.meta.dirname
@@ -47,12 +48,26 @@ async function buildRollup(entry) {
   await bundle.close()
 }
 
+/**
+ * @param {string} entry
+ */
+async function buildRolldown(entry) {
+  const inputPath = path.join(SRC_DIR, entry)
+  const outputPath = path.join(OUT_DIR, 'rolldown', entry)
+
+  const bundle = await rolldown.build({
+    input: inputPath,
+    output: {file: outputPath, format: 'esm'},
+  })
+}
+
 async function main() {
   fs.rmSync(OUT_DIR, { recursive: true, force: true })
 
   for (const entry of entries) {
     await buildEsbuild(entry)
     await buildRollup(entry)
+    await buildRolldown(entry)
   }
 }
 
