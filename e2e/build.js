@@ -3,7 +3,7 @@ import * as rollup from 'rollup'
 import fs from 'node:fs'
 import path from 'node:path'
 import * as rolldown from 'rolldown'
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 
 const CWD = import.meta.dirname
 const SRC_DIR = path.join(CWD, 'src')
@@ -57,7 +57,9 @@ async function buildRolldown(entry) {
 
   const bundle = await rolldown.build({
     input: inputPath,
-    output: {file: outputPath, format: 'esm'},
+    output: { 
+      file: outputPath, format: 'esm', minify: true },
+    treeshake: true,
   })
 }
 
