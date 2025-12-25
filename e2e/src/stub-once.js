@@ -1,4 +1,4 @@
-  import { once } from '@ocavue/utils'
+import { once } from '@ocavue/utils'
 
 // A function that is not wrapped by `once()`
 export function fn1() {
@@ -10,6 +10,7 @@ export function fn2() {
   console.log('function_2')
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const once2 = once(fn2)
 
 // A function that is wrapped by `once()`, and the wrapper is exported
