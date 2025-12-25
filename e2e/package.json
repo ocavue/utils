@@ -2,11 +2,19 @@
     "name": "e2e",
     "version": "0.0.0",
     "private": true,
+    "type": "module",
     "scripts": {
         "pretest": "pnpm -w build",
-        "test": "vitest"
+        "test": "vitest",
+        "build": "pnpm run build:esbuild",
+        "build:esbuild": "node esbuild.js"
     },
     "dependencies": {
         "@ocavue/utils": "workspace:*"
+    },
+    "devDependencies": {
+        "esbuild": "^0.27.2",
+        "rolldown": "1.0.0-beta.57",
+        "rollup": "^4.54.0"
     }
 }
