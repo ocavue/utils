@@ -1,5 +1,6 @@
 import * as esbuild from 'esbuild'
 import fs from 'node:fs'
+import path from 'node:path'
 
 const entryPoints = [
   { input: 'src/fn1.js', output: 'out/fn1.js' },
@@ -8,9 +9,8 @@ const entryPoints = [
 ]
 
 async function main() {
-  const outDir = path.join(  import.meta.dirname, 'out')
-
-
+  const outDir = path.join(import.meta.dirname, 'out')
+  fs.rmSync(outDir, { recursive: true, force: true })
 
   for (const { input, output } of entryPoints) {
     await esbuild.build({
