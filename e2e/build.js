@@ -1,9 +1,10 @@
-import * as esbuild from 'esbuild'
-import * as rollup from 'rollup'
 import fs from 'node:fs'
 import path from 'node:path'
-import * as rolldown from 'rolldown'
+
 import { nodeResolve } from '@rollup/plugin-node-resolve'
+import * as esbuild from 'esbuild'
+import * as rolldown from 'rolldown'
+import * as rollup from 'rollup'
 
 const CWD = import.meta.dirname
 const SRC_DIR = path.join(CWD, 'src')

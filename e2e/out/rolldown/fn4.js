@@ -1,5 +1,0 @@
-;(Map.groupBy, Object.groupBy)
-function e() {
-  console.log(`function_4`)
-}
-export { e as fn4 }

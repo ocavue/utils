@@ -1,8 +1,8 @@
 {
     "name": "e2e",
+    "type": "module",
     "version": "0.0.0",
     "private": true,
-    "type": "module",
     "scripts": {
         "pretest": "pnpm -w build",
         "test": "vitest",
@@ -13,7 +13,7 @@
     },
     "devDependencies": {
         "@rollup/plugin-node-resolve": "^16.0.3",
-    "esbuild": "^0.27.2",
+        "esbuild": "^0.27.2",
         "prettier": "^3.7.4",
         "rolldown": "1.0.0-beta.57",
         "rollup": "^4.54.0"

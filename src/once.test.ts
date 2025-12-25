@@ -1,7 +1,8 @@
 // @vitest-environment node
 
-import { describe, it, expect, vi } from 'vitest'
 import path from 'node:path'
+
+import { describe, it, expect, vi } from 'vitest'
 
 import { once } from './once'
 
