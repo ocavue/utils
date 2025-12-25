@@ -2,6 +2,7 @@
     "name": "e2e",
     "type": "module",
     "version": "0.0.0",
+    "description": "E2E tests for @ocavue/utils",
     "private": true,
     "scripts": {
         "pretest": "pnpm -w build",
