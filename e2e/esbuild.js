@@ -1,4 +1,5 @@
 import * as esbuild from 'esbuild'
+import * as rollup from 'rollup'
 import fs from 'node:fs'
 import path from 'node:path'
 
@@ -15,7 +16,7 @@ function buildEsbuild(entry) {
   const inputPath = path.join(SRC_DIR, entry)
   const outputPath = path.join(OUT_DIR, 'esbuild', entry)
 
-  return esbuild.build({
+  esbuild.build({
     entryPoints: [inputPath],
     outfile: outputPath,
     format: 'esm',
@@ -25,11 +26,31 @@ function buildEsbuild(entry) {
   })
 }
 
+/**
+ * @param {string} entry
+ */
+async function buildRollup(entry) {
+  const inputPath = path.join(SRC_DIR, entry)
+  const outputPath = path.join(OUT_DIR, 'rollup', entry)
+
+  const bundle = await rollup.rollup({
+    input: inputPath,
+  })
+
+  await bundle.write({
+    file: outputPath,
+    format: 'esm',
+  })
+
+  await bundle.close()
+}
+
 async function main() {
   fs.rmSync(OUT_DIR, { recursive: true, force: true })
 
   for (const entry of entries) {
     await buildEsbuild(entry)
+    await buildRollup(entry)
   }
 }
 
