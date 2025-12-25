@@ -1,18 +1,18 @@
 // @vitest-environment node
 
-import { execSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 
+import { x } from 'tinyexec'
 import { describe, it, expect, beforeAll } from 'vitest'
 
 const ROOT_DIR = path.join(import.meta.dirname, '..')
 const E2E_OUT_DIR = path.join(ROOT_DIR, 'e2e', 'out')
 
 describe('e2e', () => {
-  beforeAll(() => {
-    execSync('pnpm -w build', { cwd: ROOT_DIR, stdio: 'inherit' })
-    execSync('pnpm --filter e2e run build', { cwd: ROOT_DIR, stdio: 'inherit' })
+  beforeAll(async () => {
+    await x('pnpm', ['-w', 'build'], { nodeOptions: { cwd: ROOT_DIR, stdio: 'inherit' } })
+    await x('pnpm', ['--filter', 'e2e', 'run', 'build'], { nodeOptions: { cwd: ROOT_DIR, stdio: 'inherit' } })
   })
 
   it('bundler outputs match snapshot', () => {
