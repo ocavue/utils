@@ -21,6 +21,7 @@ async function main() {
       format: 'esm',
       platform: 'neutral',
       minify: true,
+      absWorkingDir: CWD,
     })
   }
 }
