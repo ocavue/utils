@@ -5,4 +5,9 @@ export default defineConfig({
   format: ['esm'],
   dts: true,
   fixedExtension: false,
+  minify: {
+    compress: true,
+    mangle: false,
+    codegen: false,
+  },
 })
