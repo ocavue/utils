@@ -14,9 +14,11 @@ describe('e2e', () => {
   beforeAll(async () => {
     await x('pnpm', ['-w', 'build'], {
       nodeOptions: { cwd: ROOT_DIR, stdio: 'inherit' },
+      throwOnError: true,
     })
     await x('pnpm', ['--filter', 'e2e', 'run', 'build'], {
       nodeOptions: { cwd: ROOT_DIR, stdio: 'inherit' },
+      throwOnError: true,
     })
   })
 
