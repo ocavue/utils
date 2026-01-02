@@ -4,7 +4,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { nodeResolve } from '@rollup/plugin-node-resolve'
-import * as rslib from '@rslib/core'
+import { createRslib } from '@rslib/core'
 import * as esbuild from 'esbuild'
 import * as rolldown from 'rolldown'
 import * as rollup from 'rollup'
@@ -78,25 +78,28 @@ async function buildRslib(entry) {
   const inputFilePath = path.join(SRC_DIR, entry)
   const outputDirPath = path.join(OUT_DIR, 'rslib')
 
-  await rslib.build({
-    lib: [
-      {
-        bundle: true,
-        format: 'esm',
-        output: {
-          distPath: outputDirPath,
-          cleanDistPath: false,
-          minify: true,
-        },
-        source: {
-          entry: {
-            [entryName]: inputFilePath,
+  const rslib = await createRslib({
+    config: {
+      lib: [
+        {
+          bundle: true,
+          format: 'esm',
+          output: {
+            distPath: outputDirPath,
+            cleanDistPath: false,
+            minify: true,
           },
+          source: {
+            entry: {
+              [entryName]: inputFilePath,
+            },
+          },
+          dts: false,
         },
-        dts: false,
-      },
-    ],
+      ],
+    },
   })
+  await rslib.build()
 }
 
 async function main() {
