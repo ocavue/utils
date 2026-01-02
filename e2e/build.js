@@ -15,8 +15,6 @@ const OUT_DIR = path.join(CWD, 'dist')
 
 const entries = ['fn1.js', 'fn2.js', 'fn3.js', 'fn4.js']
 
-const rslib = createRslib()
-
 /**
  * @param {string} entry
  */
@@ -80,25 +78,28 @@ async function buildRslib(entry) {
   const inputFilePath = path.join(SRC_DIR, entry)
   const outputDirPath = path.join(OUT_DIR, 'rslib')
 
-  await rslib.build({
-    lib: [
-      {
-        bundle: true,
-        format: 'esm',
-        output: {
-          distPath: outputDirPath,
-          cleanDistPath: false,
-          minify: true,
-        },
-        source: {
-          entry: {
-            [entryName]: inputFilePath,
+  const rslib = await createRslib({
+    config: {
+      lib: [
+        {
+          bundle: true,
+          format: 'esm',
+          output: {
+            distPath: outputDirPath,
+            cleanDistPath: false,
+            minify: true,
           },
+          source: {
+            entry: {
+              [entryName]: inputFilePath,
+            },
+          },
+          dts: false,
         },
-        dts: false,
-      },
-    ],
+      ],
+    },
   })
+  await rslib.build()
 }
 
 async function main() {
