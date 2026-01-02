@@ -20,8 +20,6 @@ export function objectGroupByPolyfill<K extends PropertyKey, T>(
   return result
 }
 
-let hasObjectGroupBy: boolean | undefined
-
 /**
  * A polyfill for the `Object.groupBy` static method.
  *
@@ -31,11 +29,7 @@ export function objectGroupBy<K extends PropertyKey, T>(
   items: Iterable<T>,
   keySelector: (item: T, index: number) => K,
 ): Partial<Record<K, T[]>> {
-  if (hasObjectGroupBy == null) {
-    hasObjectGroupBy = !!Object.groupBy
-  }
-  if (hasObjectGroupBy) {
-    return Object.groupBy(items, keySelector)
-  }
-  return objectGroupByPolyfill(items, keySelector)
+  return Object.groupBy
+    ? Object.groupBy(items, keySelector)
+    : objectGroupByPolyfill(items, keySelector)
 }

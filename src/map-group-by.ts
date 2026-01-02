@@ -20,8 +20,6 @@ export function mapGroupByPolyfill<K, T>(
   return map
 }
 
-let hasMapGroupBy: boolean | undefined = undefined
-
 /**
  * A polyfill for the `Map.groupBy` static method.
  *
@@ -31,11 +29,7 @@ export function mapGroupBy<K, T>(
   items: Iterable<T>,
   keySelector: (item: T, index: number) => K,
 ): Map<K, T[]> {
-  if (hasMapGroupBy == null) {
-    hasMapGroupBy = !!Map.groupBy
-  }
-  if (hasMapGroupBy) {
-    return Map.groupBy(items, keySelector)
-  }
-  return mapGroupByPolyfill(items, keySelector)
+  return Map.groupBy
+    ? Map.groupBy(items, keySelector)
+    : mapGroupByPolyfill(items, keySelector)
 }
