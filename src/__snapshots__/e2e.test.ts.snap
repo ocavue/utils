@@ -5,13 +5,13 @@ exports[`e2e > bundler outputs match snapshot 1`] = `
 ################################################################################
 esbuild/fn1.js
 --------------------------------------------------------------------------------
-var f = 2 ** 53 - 1
+var s = 2 ** 53 - 1
 function e(t) {
   let n = !1,
-    o
-  return () => (n || ((o = t()), (n = !0), (t = void 0)), o)
+    r
+  return () => (n || ((r = t()), (n = !0), (t = void 0)), r)
 }
-function r() {
+function o() {
   console.log('function_1')
 }
 function u() {
@@ -22,7 +22,7 @@ function i() {
   console.log('function_3')
 }
 var p = e(i)
-export { r as fn1 }
+export { o as fn1 }
 
 
 ################################################################################
@@ -31,18 +31,18 @@ esbuild/fn2.js
 var i = 2 ** 53 - 1
 function e(t) {
   let n = !1,
-    o
-  return () => (n || ((o = t()), (n = !0), (t = void 0)), o)
+    r
+  return () => (n || ((r = t()), (n = !0), (t = void 0)), r)
 }
-function r() {
+function o() {
   console.log('function_2')
 }
-var s = e(r)
+var f = e(o)
 function u() {
   console.log('function_3')
 }
 var l = e(u)
-export { r as fn2 }
+export { o as fn2 }
 
 
 ################################################################################
@@ -51,33 +51,33 @@ esbuild/fn3.js
 var i = 2 ** 53 - 1
 function e(t) {
   let n = !1,
-    o
-  return () => (n || ((o = t()), (n = !0), (t = void 0)), o)
+    r
+  return () => (n || ((r = t()), (n = !0), (t = void 0)), r)
 }
 function u() {
   console.log('function_2')
 }
-var s = e(u)
-function r() {
+var f = e(u)
+function o() {
   console.log('function_3')
 }
-var l = e(r)
-export { r as fn3 }
+var l = e(o)
+export { o as fn3 }
 
 
 ################################################################################
 esbuild/fn4.js
 --------------------------------------------------------------------------------
-var f = 2 ** 53 - 1
+var s = 2 ** 53 - 1
 function e(t) {
   let n = !1,
-    o
-  return () => (n || ((o = t()), (n = !0), (t = void 0)), o)
+    r
+  return () => (n || ((r = t()), (n = !0), (t = void 0)), r)
 }
-function r() {
+function o() {
   console.log('function_2')
 }
-var l = e(r)
+var l = e(o)
 function u() {
   console.log('function_3')
 }

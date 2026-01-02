@@ -1,5 +1,5 @@
 export * from './checker'
-export { DefaultMap } from './default-map'
+export { Counter, DefaultMap, DefaultWeakMap, WeakCounter } from './default-map'
 export * from './dom'
 export { formatBytes } from './format-bytes'
 export { getId } from './get-id'
