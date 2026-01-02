@@ -1,19 +1,11 @@
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
-import {
-  objectGroupBy,
-  objectGroupByPolyfill,
-  objectGroupByNative,
-} from './object-group-by'
+import { objectGroupBy, objectGroupByPolyfill } from './object-group-by'
 
 const testCases = [
   { name: 'objectGroupBy', fn: objectGroupBy },
   { name: 'objectGroupByPolyfill', fn: objectGroupByPolyfill },
 ]
-
-if (!!Object.groupBy) {
-  testCases.push({ name: 'objectGroupByNative', fn: objectGroupByNative })
-}
 
 describe.each(testCases)('$name', ({ fn }) => {
   it('groups items by key', () => {
