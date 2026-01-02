@@ -1,19 +1,11 @@
 import { describe, it, expect } from 'vitest'
 
-import {
-  mapGroupBy,
-  mapGroupByPolyfill,
-  mapGroupByNative,
-} from './map-group-by'
+import { mapGroupBy, mapGroupByPolyfill } from './map-group-by'
 
 const testCases = [
   { name: 'mapGroupBy', fn: mapGroupBy },
   { name: 'mapGroupByPolyfill', fn: mapGroupByPolyfill },
 ]
-
-if (!!Map.groupBy) {
-  testCases.push({ name: 'mapGroupByNative', fn: mapGroupByNative })
-}
 
 describe.each(testCases)('$name', ({ fn }) => {
   it('groups items by key', () => {

@@ -15,7 +15,7 @@
     "@rslib/core": "^0.19.1",
     "esbuild": "^0.27.2",
     "prettier": "^3.7.4",
-    "rolldown": "1.0.0-beta.57",
+    "rolldown": "^1.0.0-beta.58",
     "rollup": "^4.54.0"
   }
 }
