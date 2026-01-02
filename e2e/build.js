@@ -4,7 +4,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { nodeResolve } from '@rollup/plugin-node-resolve'
-import * as rslib from '@rslib/core'
+import { createRslib } from '@rslib/core'
 import * as esbuild from 'esbuild'
 import * as rolldown from 'rolldown'
 import * as rollup from 'rollup'
@@ -14,6 +14,8 @@ const SRC_DIR = path.join(CWD, 'src')
 const OUT_DIR = path.join(CWD, 'dist')
 
 const entries = ['fn1.js', 'fn2.js', 'fn3.js', 'fn4.js']
+
+const rslib = createRslib()
 
 /**
  * @param {string} entry
