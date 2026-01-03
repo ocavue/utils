@@ -1,13 +1,15 @@
-import { DefaultMap, DefaultWeakMap } from './default-map'
-
 /**
  * A map that counts occurrences of keys.
  *
  * Similar to Python's [Counter](https://docs.python.org/3.13/library/collections.html#collections.Counter).
  */
-export class Counter<K> extends DefaultMap<K, number> {
+export class Counter<K> extends Map<K, number> {
   constructor(iterable?: Iterable<readonly [K, number]>) {
-    super(() => 0, iterable)
+    super(iterable)
+  }
+
+  override get(key: K): number {
+    return super.get(key) ?? 0
   }
 
   /**
@@ -30,9 +32,13 @@ export class Counter<K> extends DefaultMap<K, number> {
  *
  * Similar to Counter but uses WeakMap as the base, allowing garbage collection of keys.
  */
-export class WeakCounter<K extends WeakKey> extends DefaultWeakMap<K, number> {
+export class WeakCounter<K extends WeakKey> extends WeakMap<K, number> {
   constructor(entries?: readonly (readonly [K, number])[] | null) {
-    super(() => 0, entries)
+    super(entries)
+  }
+
+  override get(key: K): number {
+    return super.get(key) ?? 0
   }
 
   /**
