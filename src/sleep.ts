@@ -4,7 +4,7 @@
  * @param ms - The number of milliseconds to wait.
  *
  * @example
- * ```typescript
+ * ```js
  * await sleep(1000)  // Wait 1 second
  * ```
  */
