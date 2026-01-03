@@ -1,8 +1,6 @@
 // @vitest-environment node
 
-import path from 'node:path'
-
-import { describe, it, expect, vi } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { once } from './once'
 
@@ -25,6 +23,4 @@ describe('once', () => {
     const getValue = once(() => value)
     expect(getValue()).toBe(value)
   })
-
- 
 })
