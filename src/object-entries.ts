@@ -53,6 +53,8 @@ export type ObjectEntries<T extends Record<string, any>> = {
  *
  * @public
  */
-export const objectEntries: <T extends Record<string, any>>(
+export function objectEntries<T extends Record<string, any>>(
   obj: T,
-) => ObjectEntries<T>[] = Object.entries
+): ObjectEntries<T>[] {
+  return Object.entries(obj)
+}
