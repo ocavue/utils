@@ -21,7 +21,7 @@ export function mapGroupByPolyfill<K, T>(
 }
 
 /**
- * A polyfill for the `Map.groupBy` static method.
+ * A polyfill for the [`Map.groupBy()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/groupBy) static method.
  *
  * @public
  */

@@ -21,7 +21,7 @@ export function objectGroupByPolyfill<K extends PropertyKey, T>(
 }
 
 /**
- * A polyfill for the `Object.groupBy` static method.
+ * A polyfill for the [`Object.groupBy()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy) static method.
  *
  * @public
  */
