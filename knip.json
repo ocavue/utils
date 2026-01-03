@@ -2,13 +2,10 @@
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "workspaces": {
     ".": {
-      "entry": [
-        "src/index.ts"
-      ]
+     
     },
     "e2e": {
       "entry": [
-        "./build.js",
         "./src/*.js"
       ]
     }
