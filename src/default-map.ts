@@ -155,17 +155,13 @@ export class DefaultMap<K, V> extends Map<K, V> {
  *
  * @example
  * ```typescript
- * // Track event listeners per element
- * const eventListeners = new DefaultWeakMap<EventTarget, Map<string, Function[]>>(
- *   () => new Map()
+ * // Track event listeners per element using both DefaultWeakMap and DefaultMap
+ * const eventListeners = new DefaultWeakMap<EventTarget, DefaultMap<string, Function[]>>(
+ *   () => new DefaultMap<string, Function[]>(() => [])
  * )
  *
  * function addListener(target: EventTarget, event: string, handler: Function) {
- *   const listeners = eventListeners.get(target)
- *   if (!listeners.has(event)) {
- *     listeners.set(event, [])
- *   }
- *   listeners.get(event)!.push(handler)
+ *   eventListeners.get(target).get(event).push(handler)
  * }
  *
  * const element = document.createElement('button')
@@ -173,8 +169,9 @@ export class DefaultMap<K, V> extends Map<K, V> {
  * addListener(element, 'click', () => console.log('also clicked'))
  * addListener(element, 'hover', () => console.log('hovered'))
  *
- * console.log(eventListeners.get(element).get('click')?.length)  // 2
- * console.log(eventListeners.get(element).get('hover')?.length)  // 1
+ * console.log(eventListeners.get(element).get('click').length)  // 2
+ * console.log(eventListeners.get(element).get('hover').length)  // 1
+ * // No need for has() checks or null assertions - everything auto-initializes!
  * ```
  */
 export class DefaultWeakMap<K extends WeakKey, V> extends WeakMap<K, V> {
