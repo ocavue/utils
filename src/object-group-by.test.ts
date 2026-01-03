@@ -78,22 +78,25 @@ describe.each(testCases)('$name', ({ fn }) => {
 })
 
 describe('objectGroupBy', () => {
-  it('falls back to polyfill when Object.groupBy is not available', () => {
-    // Mock Object.groupBy as undefined to test the polyfill path
-    const spy = vi
-      // @ts-expect-error - spy
-      .spyOn(Object, 'groupBy', 'get')
-      // @ts-expect-error - spy
-      .mockReturnValueOnce(undefined)
+  it.skipIf(!Object.groupBy)(
+    'falls back to polyfill when Object.groupBy is not available',
+    () => {
+      // Mock Object.groupBy as undefined to test the polyfill path
+      const spy = vi
+        // @ts-expect-error - spy
+        .spyOn(Object, 'groupBy', 'get')
+        // @ts-expect-error - spy
+        .mockReturnValueOnce(undefined)
 
-    const items = [1, 2, 3, 4, 5, 6]
-    const result = objectGroupBy(items, (item) =>
-      item % 2 === 0 ? 'even' : 'odd',
-    )
+      const items = [1, 2, 3, 4, 5, 6]
+      const result = objectGroupBy(items, (item) =>
+        item % 2 === 0 ? 'even' : 'odd',
+      )
 
-    expect(result.even).toEqual([2, 4, 6])
-    expect(result.odd).toEqual([1, 3, 5])
+      expect(result.even).toEqual([2, 4, 6])
+      expect(result.odd).toEqual([1, 3, 5])
 
-    spy.mockRestore()
-  })
+      spy.mockRestore()
+    },
+  )
 })
