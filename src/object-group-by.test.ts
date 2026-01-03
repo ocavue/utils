@@ -1,5 +1,4 @@
-
-import {beforeEach, afterEach , describe, expect, it, vi } from 'vitest'
+import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest'
 
 import { objectGroupBy, objectGroupByPolyfill } from './object-group-by'
 
@@ -93,16 +92,13 @@ describe('objectGroupBy2', () => {
     vi.restoreAllMocks()
   })
 
-  it (
-    'falls back to polyfill when Object.groupBy is not available',
-    () => {
-      const items = [1, 2, 3, 4, 5, 6]
-      const result = objectGroupBy(items, (item) =>
-        item % 2 === 0 ? 'even' : 'odd',
-      )
+  it('falls back to polyfill when Object.groupBy is not available', () => {
+    const items = [1, 2, 3, 4, 5, 6]
+    const result = objectGroupBy(items, (item) =>
+      item % 2 === 0 ? 'even' : 'odd',
+    )
 
-      expect(result.even).toEqual([2, 4, 6])
-      expect(result.odd).toEqual([1, 3, 5])
-    },
-  )
+    expect(result.even).toEqual([2, 4, 6])
+    expect(result.odd).toEqual([1, 3, 5])
+  })
 })
