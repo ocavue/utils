@@ -14,7 +14,7 @@
  * console.log(wordCounter.get('apple'))   // 3
  * console.log(wordCounter.get('banana'))  // 2
  * console.log(wordCounter.get('cherry'))  // 1
- * console.log(wordCounter.get('orange'))  // 0 (auto-initialized)
+ * console.log(wordCounter.get('orange'))  // 0 (defaults to 0)
  * ```
  *
  * @example
