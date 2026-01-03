@@ -1,8 +1,7 @@
 /**
- * Pauses execution for a specified number of milliseconds.
+ * Returns a Promise that resolves after a specified number of milliseconds.
  *
  * @param ms - The number of milliseconds to wait.
- * @returns A Promise that resolves after the specified delay.
  *
  * @example
  * ```typescript
