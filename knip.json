@@ -1,11 +1,16 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
-  "ignoreExportsUsedInFile": {
-    "interface": true,
-    "type": true
-  },
-  "tags": ["-lintignore"],
   "workspaces": {
-    ".": {}
+    ".": {
+      "entry": [
+        "src/index.ts"
+      ]
+    },
+    "e2e": {
+      "entry": [
+        "./build.js",
+        "./src/*.js"
+      ]
+    }
   }
 }
