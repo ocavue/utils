@@ -86,7 +86,7 @@ export class DefaultMap<K, V> extends Map<K, V> {
 /**
  * A weak map that automatically creates values for missing keys using a factory function.
  *
- * Similar to DefaultMap but uses WeakMap as the base, allowing garbage collection of keys.
+ * Similar to {@link DefaultMap} but uses WeakMap as the base, allowing garbage collection of keys.
  *
  * @example
  * ```typescript

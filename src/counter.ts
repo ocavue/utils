@@ -1,8 +1,6 @@
 /**
  * A map that counts occurrences of keys.
  *
- * Similar to Python's [Counter](https://docs.python.org/3.13/library/collections.html#collections.Counter).
- *
  * @example
  * ```typescript
  * // Count word occurrences
@@ -80,7 +78,7 @@ export class Counter<K> extends Map<K, number> {
 /**
  * A weak map that counts occurrences of object keys.
  *
- * Similar to Counter but uses WeakMap as the base, allowing garbage collection of keys.
+ * Similar to {@link Counter} but uses WeakMap as the base, allowing garbage collection of keys.
  *
  * @example
  * ```typescript
