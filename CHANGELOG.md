@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/ocavue/utils/compare/v1.3.0...v1.3.1) (2026-01-03)
+
+
+### Bug Fixes
+
+* simplify counter implementation ([#60](https://github.com/ocavue/utils/issues/60)) ([2a31c2f](https://github.com/ocavue/utils/commit/2a31c2fb92128974791460e1e2ff05404d1c455c))
+
 ## [1.3.0](https://github.com/ocavue/utils/compare/v1.2.0...v1.3.0) (2026-01-02)
 
 
