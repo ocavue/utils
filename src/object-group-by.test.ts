@@ -77,14 +77,11 @@ describe.each(testCases)('$name', ({ fn }) => {
   })
 })
 
-describe('objectGroupBy2', () => {
+describe('objectGroupBy', () => {
   beforeEach(() => {
     if ('groupBy' in Object) {
-      vi
-        // @ts-expect-error - spy
-        .spyOn(Object, 'groupBy', 'get')
-        // @ts-expect-error - spy
-        .mockReturnValueOnce(undefined)
+      // @ts-expect-error - spy
+      vi.spyOn(Object, 'groupBy', 'get').mockReturnValueOnce(undefined)
     }
   })
 

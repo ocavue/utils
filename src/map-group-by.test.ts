@@ -72,11 +72,8 @@ describe.each(testCases)('$name', ({ fn }) => {
 describe('mapGroupBy', () => {
   beforeEach(() => {
     if ('groupBy' in Map) {
-      vi
-        // @ts-expect-error - spy
-        .spyOn(Map, 'groupBy', 'get')
-        // @ts-expect-error - spy
-        .mockReturnValueOnce(undefined)
+      // @ts-expect-error - spy
+      vi.spyOn(Map, 'groupBy', 'get').mockReturnValueOnce(undefined)
     }
   })
 
