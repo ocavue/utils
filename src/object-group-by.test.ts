@@ -80,9 +80,10 @@ describe.each(testCases)('$name', ({ fn }) => {
 describe('objectGroupBy', () => {
   it('falls back to polyfill when Object.groupBy is not available', () => {
     // Mock Object.groupBy as undefined to test the polyfill path
-    // @ts-expect-error - intentionally mocking Object.groupBy
     const spy = vi
+      // @ts-expect-error - spy
       .spyOn(Object, 'groupBy', 'get')
+      // @ts-expect-error - spy
       .mockReturnValueOnce(undefined)
 
     const items = [1, 2, 3, 4, 5, 6]

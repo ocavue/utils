@@ -72,8 +72,11 @@ describe.each(testCases)('$name', ({ fn }) => {
 describe('mapGroupBy', () => {
   it('falls back to polyfill when Map.groupBy is not available', () => {
     // Mock Map.groupBy as undefined to test the polyfill path
-    // @ts-expect-error - intentionally removing Map.groupBy
-    const spy = vi.spyOn(Map, 'groupBy', 'get').mockReturnValueOnce(undefined)
+    const spy = vi
+      // @ts-expect-error - spy
+      .spyOn(Map, 'groupBy', 'get')
+      // @ts-expect-error - spy
+      .mockReturnValueOnce(undefined)
 
     const items = [1, 2, 3, 4, 5, 6]
     const result = mapGroupBy(items, (item) => item % 2)
