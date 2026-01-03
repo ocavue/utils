@@ -17,13 +17,16 @@ export type ObjectEntries<T extends Record<string, any>> = {
 }[keyof T]
 
 /**
- * A type-safe wrapper around `Object.entries()` that preserves the exact types of object keys
- * and values. Unlike the standard `Object.entries()` which returns `[string, any][]`, this
- * function returns an array of tuples where each tuple is precisely typed according to the
- * input object's structure.
+ * A type-safe wrapper around
+ * [`Object.entries()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
+ * that preserves the exact types of object keys and values. Unlike the standard
+ * `Object.entries()` which returns `[string, any][]`, this function returns an
+ * array of tuples where each tuple is precisely typed according to the input
+ * object's structure.
  *
- * This is particularly useful when working with objects that have known, fixed property types
- * and you want to maintain type safety when iterating over entries.
+ * This is particularly useful when working with objects that have known, fixed
+ * property types and you want to maintain type safety when iterating over
+ * entries.
  *
  * @example
  * ```typescript
