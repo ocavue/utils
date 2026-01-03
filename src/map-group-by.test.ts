@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 
 import { mapGroupBy, mapGroupByPolyfill } from './map-group-by'
 
@@ -66,5 +66,21 @@ describe.each(testCases)('$name', ({ fn }) => {
 
     expect(result.get(0)).toEqual([2, 4])
     expect(result.get(1)).toEqual([1, 3, 5])
+  })
+})
+
+describe('mapGroupBy', () => {
+  it('falls back to polyfill when Map.groupBy is not available', () => {
+    // Mock Map.groupBy as undefined to test the polyfill path
+    // @ts-expect-error - intentionally removing Map.groupBy
+    const spy = vi.spyOn(Map, 'groupBy', 'get').mockReturnValueOnce(undefined)
+
+    const items = [1, 2, 3, 4, 5, 6]
+    const result = mapGroupBy(items, (item) => item % 2)
+
+    expect(result.get(0)).toEqual([2, 4, 6])
+    expect(result.get(1)).toEqual([1, 3, 5])
+
+    spy.mockRestore()
   })
 })
