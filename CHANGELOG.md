@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/ocavue/utils/compare/v1.3.1...v1.4.0) (2026-02-04)
+
+
+### Features
+
+* add `isNotNullish` ([#65](https://github.com/ocavue/utils/issues/65)) ([2ec0438](https://github.com/ocavue/utils/commit/2ec043845b7899cc547f2bfff0840e25eb1e24d6))
+
 ## [1.3.1](https://github.com/ocavue/utils/compare/v1.3.0...v1.3.1) (2026-01-03)
 
 
