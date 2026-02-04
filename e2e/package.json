@@ -12,10 +12,10 @@
   "devDependencies": {
     "@ocavue/utils": "workspace:*",
     "@rollup/plugin-node-resolve": "^16.0.3",
-    "@rslib/core": "^0.19.1",
+    "@rslib/core": "^0.19.4",
     "esbuild": "^0.27.2",
-    "prettier": "^3.7.4",
-    "rolldown": "^1.0.0-beta.58",
-    "rollup": "^4.54.0"
+    "prettier": "^3.8.1",
+    "rolldown": "^1.0.0-rc.2",
+    "rollup": "^4.57.1"
   }
 }
