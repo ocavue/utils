@@ -12,4 +12,3 @@ export { objectEntries, type ObjectEntries } from './object-entries'
 export { objectGroupBy } from './object-group-by'
 export { once } from './once'
 export { sleep } from './sleep'
-
