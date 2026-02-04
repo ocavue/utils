@@ -2,7 +2,7 @@
 
 import { describe, expect, it } from 'vitest'
 
-import { isMap, isObject, isSet } from './checker'
+import { isMap, isNotNullish, isObject, isSet } from './checker'
 
 describe('isObject', () => {
   it('returns true for plain objects', () => {
@@ -70,5 +70,26 @@ describe('isSet', () => {
     expect(isSet(undefined)).toBe(false)
     expect(isSet('set')).toBe(false)
     expect(isSet(42)).toBe(false)
+  })
+})
+
+describe('isNotNullish', () => {
+  it('returns false for null and undefined', () => {
+    expect(isNotNullish(null)).toBe(false)
+    expect(isNotNullish(undefined)).toBe(false)
+  })
+
+  it('returns true for non-nullish values', () => {
+    expect(isNotNullish(0)).toBe(true)
+    expect(isNotNullish(-1)).toBe(true)
+    expect(isNotNullish('')).toBe(true)
+    expect(isNotNullish('hello')).toBe(true)
+    expect(isNotNullish(true)).toBe(true)
+    expect(isNotNullish(false)).toBe(true)
+    expect(isNotNullish({})).toBe(true)
+    expect(isNotNullish([])).toBe(true)
+    expect(isNotNullish(new Map())).toBe(true)
+    expect(isNotNullish(new Set())).toBe(true)
+    expect(isNotNullish(0n)).toBe(true)
   })
 })
