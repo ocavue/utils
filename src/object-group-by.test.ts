@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest'
 
 import { objectGroupBy, objectGroupByPolyfill } from './object-group-by'
 
@@ -73,6 +73,29 @@ describe.each(testCases)('$name', ({ fn }) => {
     const result = fn(set, (item) => (item % 2 === 0 ? 'even' : 'odd'))
 
     expect(result.even).toEqual([2, 4])
+    expect(result.odd).toEqual([1, 3, 5])
+  })
+})
+
+describe('objectGroupBy', () => {
+  beforeEach(() => {
+    if ('groupBy' in Object) {
+      // @ts-expect-error - spy
+      vi.spyOn(Object, 'groupBy', 'get').mockReturnValueOnce(undefined)
+    }
+  })
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
+  it('falls back to polyfill when Object.groupBy is not available', () => {
+    const items = [1, 2, 3, 4, 5, 6]
+    const result = objectGroupBy(items, (item) =>
+      item % 2 === 0 ? 'even' : 'odd',
+    )
+
+    expect(result.even).toEqual([2, 4, 6])
     expect(result.odd).toEqual([1, 3, 5])
   })
 })
