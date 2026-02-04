@@ -20,3 +20,10 @@ export function isMap(value: unknown): value is Map<unknown, unknown> {
 export function isSet(value: unknown): value is Set<unknown> {
   return value instanceof Set
 }
+
+/**
+ * Returns true if the given value is not null or undefined.
+ */
+export function isNotNullish<T>(value: T): value is NonNullable<T> {
+  return value != null
+}

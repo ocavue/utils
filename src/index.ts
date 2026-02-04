@@ -1,4 +1,5 @@
 export * from './checker'
+export { isNotNullish } from './checker'
 export { Counter, WeakCounter } from './counter'
 export { DefaultMap, DefaultWeakMap } from './default-map'
 export * from './dom'
@@ -11,3 +12,4 @@ export { objectEntries, type ObjectEntries } from './object-entries'
 export { objectGroupBy } from './object-group-by'
 export { once } from './once'
 export { sleep } from './sleep'
+
