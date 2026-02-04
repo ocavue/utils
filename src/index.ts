@@ -1,5 +1,4 @@
 export * from './checker'
-export { isNotNullish } from './checker'
 export { Counter, WeakCounter } from './counter'
 export { DefaultMap, DefaultWeakMap } from './default-map'
 export * from './dom'
