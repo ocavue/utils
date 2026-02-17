@@ -37,7 +37,7 @@ function e(t) {
 function o() {
   console.log('function_2')
 }
-var c = e(o)
+var f = e(o)
 function u() {
   console.log('function_3')
 }
@@ -57,7 +57,7 @@ function e(t) {
 function u() {
   console.log('function_2')
 }
-var c = e(u)
+var f = e(u)
 function o() {
   console.log('function_3')
 }
