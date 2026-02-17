@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/ocavue/utils/compare/v1.4.0...v1.5.0) (2026-02-17)
+
+
+### Features
+
+* add `supportsRegexLookbehind` ([#69](https://github.com/ocavue/utils/issues/69)) ([9d87e58](https://github.com/ocavue/utils/commit/9d87e5803e22bf2709a376d4ea47ee39ad3d9211))
+
 ## [1.4.0](https://github.com/ocavue/utils/compare/v1.3.1...v1.4.0) (2026-02-04)
 
 
