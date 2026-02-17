@@ -59,7 +59,7 @@
     "@types/node": "^24.9.2",
     "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^9.39.2",
-    "jsdom": "^27.4.0",
+    "jsdom": "^28.1.0",
     "knip": "^5.83.0",
     "pkg-pr-new": "^0.0.63",
     "prettier": "^3.8.1",
