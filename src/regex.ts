@@ -8,7 +8,7 @@ import { once } from './once'
 export const supportsRegexLookbehind: () => boolean = /* @__PURE__ */ once(
   () => {
     try {
-      return 'ab'.replace(new RegExp('(?<=a)b', 'g'), 'c') === 'ac'
+      return 'ab'.replaceAll(new RegExp('(?<=a)b', 'g'), 'c') === 'ac'
     } catch {
       /* v8 ignore start */
       return false
