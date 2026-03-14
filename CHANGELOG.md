@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/ocavue/utils/compare/v1.5.0...v1.6.0) (2026-03-14)
+
+
+### Features
+
+* add `throttle` ([#74](https://github.com/ocavue/utils/issues/74)) ([17074d4](https://github.com/ocavue/utils/commit/17074d49185ed5ec42a36e436915727d8d8a8375))
+
 ## [1.5.0](https://github.com/ocavue/utils/compare/v1.4.0...v1.5.0) (2026-02-17)
 
 
