@@ -5,6 +5,7 @@ export default defineConfig({
   format: ['esm'],
   dts: true,
   fixedExtension: false,
+  sourcemap: 'hidden',
   minify: {
     compress: true,
     mangle: false,
