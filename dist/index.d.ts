@@ -580,4 +580,3 @@ declare function sleep(ms: number): Promise<void>;
 declare function throttle<T extends (this: any, ...args: any[]) => unknown>(callback: T, wait: number): (this: ThisParameterType<T>, ...args: Parameters<T>) => void;
 //#endregion
 export { Counter, DefaultMap, DefaultWeakMap, type ObjectEntries, WeakCounter, formatBytes, getDocument, getDocumentElement, getId, getWindow, isDeepEqual, isDocument, isDocumentFragment, isElement, isElementLike, isHTMLElement, isMap, isMathMLElement, isNodeLike, isNotNullish, isObject, isSVGElement, isSet, isShadowRoot, isTextNode, isWindowLike, mapGroupBy, mapValues, objectEntries, objectGroupBy, once, sleep, supportsRegexLookbehind, throttle };
-//# sourceMappingURL=index.d.ts.map
