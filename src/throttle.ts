@@ -16,14 +16,14 @@
  * // after 1000ms, logs 'called Charlie' again (trailing call)
  * ```
  */
-export function throttle<T extends (...args: any[]) => unknown>(
+export function throttle<T extends (this: any, ...args: any[]) => unknown>(
   callback: T,
   wait: number,
-): (...args: Parameters<T>) => void {
+): (this: ThisParameterType<T>, ...args: Parameters<T>) => void {
   let timeoutId: ReturnType<typeof setTimeout> | undefined
   let lastCallTime = 0
 
-  return function throttled(...args: Parameters<T>): void {
+  return function throttled(this: ThisParameterType<T>, ...args: Parameters<T>): void {
     clearTimeout(timeoutId)
 
     const now = Date.now()
@@ -32,11 +32,11 @@ export function throttle<T extends (...args: any[]) => unknown>(
 
     if (delay <= 0) {
       lastCallTime = now
-      callback(...args)
+      callback.apply(this, args)
     } else {
       timeoutId = setTimeout(() => {
         lastCallTime = Date.now()
-        callback(...args)
+        callback.apply(this, args)
       }, delay)
     }
   }
