@@ -82,6 +82,49 @@ describe('throttle', () => {
     vi.useRealTimers()
   })
 
+  it('preserves this context on leading call', () => {
+    vi.useFakeTimers()
+
+    const obj = {
+      value: 42,
+      throttled: throttle(function (this: { value: number }) {
+        return this.value
+      }, 100),
+    }
+
+    const spy = vi.fn()
+    obj.throttled = throttle(function (this: { value: number }) {
+      spy(this.value)
+    }, 100)
+
+    obj.throttled()
+    expect(spy).toHaveBeenCalledWith(42)
+
+    vi.useRealTimers()
+  })
+
+  it('preserves this context on trailing call', () => {
+    vi.useFakeTimers()
+
+    const spy = vi.fn()
+    const obj = {
+      value: 42,
+      throttled: throttle(function (this: { value: number }) {
+        spy(this.value)
+      }, 100),
+    }
+
+    obj.throttled()
+    obj.throttled()
+
+    vi.advanceTimersByTime(100)
+
+    expect(spy).toHaveBeenCalledTimes(2)
+    expect(spy).toHaveBeenLastCalledWith(42)
+
+    vi.useRealTimers()
+  })
+
   it('does not fire trailing call if no calls during wait', () => {
     vi.useFakeTimers()
 
