@@ -23,7 +23,10 @@ export function throttle<T extends (this: any, ...args: any[]) => unknown>(
   let timeoutId: ReturnType<typeof setTimeout> | undefined
   let lastCallTime = 0
 
-  return function throttled(this: ThisParameterType<T>, ...args: Parameters<T>): void {
+  return function throttled(
+    this: ThisParameterType<T>,
+    ...args: Parameters<T>
+  ): void {
     clearTimeout(timeoutId)
 
     const now = Date.now()
