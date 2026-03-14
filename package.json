@@ -2,7 +2,7 @@
   "name": "@ocavue/utils",
   "type": "module",
   "version": "1.6.0",
-  "packageManager": "pnpm@10.30.3",
+  "packageManager": "pnpm@10.32.1",
   "description": "A collection of utility functions for the browser and other environments",
   "author": "ocavue <ocavue@gmail.com>",
   "license": "MIT",
@@ -53,22 +53,22 @@
     "typecheck": "tsc -b"
   },
   "devDependencies": {
-    "@ocavue/eslint-config": "^4.2.0",
-    "@ocavue/tsconfig": "^0.6.3",
-    "@size-limit/preset-small-lib": "^12.0.0",
+    "@ocavue/eslint-config": "^4.3.2",
+    "@ocavue/tsconfig": "^0.7.0",
+    "@size-limit/preset-small-lib": "^12.0.1",
     "@types/node": "^24.9.2",
-    "@vitest/coverage-v8": "^4.0.18",
-    "eslint": "^10.0.2",
+    "@vitest/coverage-v8": "^4.1.0",
+    "eslint": "^10.0.3",
     "jsdom": "^28.1.0",
-    "knip": "^5.85.0",
+    "knip": "^5.86.0",
     "pkg-pr-new": "^0.0.65",
     "prettier": "^3.8.1",
-    "size-limit": "^12.0.0",
+    "size-limit": "^12.0.1",
     "tinyexec": "^1.0.2",
     "tinyglobby": "^0.2.15",
     "tsdown": "^0.21.2",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.0"
   },
   "publishConfig": {
     "access": "public"
