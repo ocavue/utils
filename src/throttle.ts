@@ -30,8 +30,7 @@ export function throttle<T extends (this: any, ...args: any[]) => unknown>(
     clearTimeout(timeoutId)
 
     const now = Date.now()
-    const timeSinceLastCall = now - lastCallTime
-    const delay = wait - timeSinceLastCall
+    const delay = wait + lastCallTime - now
 
     if (delay <= 0) {
       lastCallTime = now
