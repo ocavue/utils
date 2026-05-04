@@ -2,7 +2,7 @@
   "name": "@ocavue/utils",
   "type": "module",
   "version": "1.6.0",
-  "packageManager": "pnpm@10.32.1",
+  "packageManager": "pnpm@11.0.4",
   "description": "A collection of utility functions for the browser and other environments",
   "author": "ocavue <ocavue@gmail.com>",
   "license": "MIT",
