@@ -53,22 +53,22 @@
     "typecheck": "tsc -b"
   },
   "devDependencies": {
-    "@ocavue/eslint-config": "^4.3.2",
-    "@ocavue/tsconfig": "^0.7.0",
-    "@size-limit/preset-small-lib": "^12.0.1",
+    "@ocavue/eslint-config": "^4.5.5",
+    "@ocavue/tsconfig": "^0.7.1",
+    "@size-limit/preset-small-lib": "^12.1.0",
     "@types/node": "^24.9.2",
-    "@vitest/coverage-v8": "^4.1.0",
-    "eslint": "^10.0.3",
+    "@vitest/coverage-v8": "^4.1.5",
+    "eslint": "^10.3.0",
     "jsdom": "^29.1.1",
     "knip": "^6.11.0",
-    "pkg-pr-new": "^0.0.65",
-    "prettier": "^3.8.1",
-    "size-limit": "^12.0.1",
-    "tinyexec": "^1.0.2",
-    "tinyglobby": "^0.2.15",
-    "tsdown": "^0.21.2",
+    "pkg-pr-new": "^0.0.70",
+    "prettier": "^3.8.3",
+    "size-limit": "^12.1.0",
+    "tinyexec": "^1.1.2",
+    "tinyglobby": "^0.2.16",
+    "tsdown": "^0.21.10",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.0"
+    "vitest": "^4.1.5"
   },
   "publishConfig": {
     "access": "public"
