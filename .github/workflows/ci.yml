@@ -65,4 +65,4 @@ jobs:
 
       - name: Generate coverage report
         if: ${{ github.event_name == 'pull_request' && matrix.node == '24.x' && matrix.os == 'ubuntu-latest' }}
-        uses: davelosert/vitest-coverage-report-action@3c50566c523e04813df28de8f7c48dd97d663f1c # v2.11.2
+        uses: davelosert/vitest-coverage-report-action@02f3c2e641286b7fa308cd3e430783103ce6103b # v2.12.0
