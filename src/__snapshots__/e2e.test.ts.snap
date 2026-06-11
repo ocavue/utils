@@ -6,10 +6,10 @@ exports[`e2e > bundler outputs match snapshot 1`] = `
 esbuild/fn1.js
 --------------------------------------------------------------------------------
 var s = 2 ** 53 - 1
-function e(t) {
+function t(e) {
   let n = !1,
     r
-  return () => (n || ((r = t()), (n = !0), (t = void 0)), r)
+  return () => (n || ((r = e()), (n = !0), (e = void 0)), r)
 }
 function o() {
   console.log('function_1')
@@ -17,11 +17,11 @@ function o() {
 function u() {
   console.log('function_2')
 }
-var l = e(u)
+var l = t(u)
 function i() {
   console.log('function_3')
 }
-var p = e(i)
+var p = t(i)
 export { o as fn1 }
 
 
@@ -29,19 +29,19 @@ export { o as fn1 }
 esbuild/fn2.js
 --------------------------------------------------------------------------------
 var i = 2 ** 53 - 1
-function e(t) {
+function t(e) {
   let n = !1,
     r
-  return () => (n || ((r = t()), (n = !0), (t = void 0)), r)
+  return () => (n || ((r = e()), (n = !0), (e = void 0)), r)
 }
 function o() {
   console.log('function_2')
 }
-var f = e(o)
+var f = t(o)
 function u() {
   console.log('function_3')
 }
-var l = e(u)
+var l = t(u)
 export { o as fn2 }
 
 
@@ -49,19 +49,19 @@ export { o as fn2 }
 esbuild/fn3.js
 --------------------------------------------------------------------------------
 var i = 2 ** 53 - 1
-function e(t) {
+function t(e) {
   let n = !1,
     r
-  return () => (n || ((r = t()), (n = !0), (t = void 0)), r)
+  return () => (n || ((r = e()), (n = !0), (e = void 0)), r)
 }
 function u() {
   console.log('function_2')
 }
-var f = e(u)
+var f = t(u)
 function o() {
   console.log('function_3')
 }
-var l = e(o)
+var l = t(o)
 export { o as fn3 }
 
 
@@ -69,19 +69,19 @@ export { o as fn3 }
 esbuild/fn4.js
 --------------------------------------------------------------------------------
 var s = 2 ** 53 - 1
-function e(t) {
+function t(e) {
   let n = !1,
     r
-  return () => (n || ((r = t()), (n = !0), (t = void 0)), r)
+  return () => (n || ((r = e()), (n = !0), (e = void 0)), r)
 }
 function o() {
   console.log('function_2')
 }
-var l = e(o)
+var l = t(o)
 function u() {
   console.log('function_3')
 }
-var p = e(u)
+var p = t(u)
 function i() {
   console.log('function_4')
 }
