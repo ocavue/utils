@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/ocavue/utils/compare/v1.6.0...v1.7.0) (2026-06-11)
+
+
+### Features
+
+* add clamp ([#87](https://github.com/ocavue/utils/issues/87)) ([c51252d](https://github.com/ocavue/utils/commit/c51252df7d7a8eaf99968302ce4940b41022463a))
+
 ## [1.6.0](https://github.com/ocavue/utils/compare/v1.5.0...v1.6.0) (2026-03-14)
 
 
