@@ -1,4 +1,5 @@
 export * from './checker'
+export { clamp } from './clamp'
 export { Counter, WeakCounter } from './counter'
 export { DefaultMap, DefaultWeakMap } from './default-map'
 export * from './dom'
