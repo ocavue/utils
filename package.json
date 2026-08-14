@@ -50,6 +50,7 @@
     "ci:publish:snapshot": "pkg-pr-new publish --pnpm",
     "prepublishOnly": "pnpm run build",
     "test": "vitest",
+    "test:update-snapshots": "vitest run -u",
     "typecheck": "tsc -b"
   },
   "devDependencies": {
