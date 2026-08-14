@@ -181,26 +181,34 @@ describe('getWindow', () => {
 
   it('returns fallback window when document.defaultView is null', () => {
     const doc = {} as Document
-    Object.defineProperty(doc, 'nodeType', { value: 9 }) // DOCUMENT_NODE
-    Object.defineProperty(doc, 'defaultView', { value: null })
+    Object.defineProperties(doc, {
+      nodeType: { value: 9 }, // DOCUMENT_NODE
+      defaultView: { value: null },
+    })
     expect(getWindow(doc)).toBe(window)
   })
 
   it('returns fallback window when element.ownerDocument is null', () => {
     const el = {} as Element
-    Object.defineProperty(el, 'nodeType', { value: 1 }) // ELEMENT_NODE
-    Object.defineProperty(el, 'ownerDocument', { value: null })
+    Object.defineProperties(el, {
+      nodeType: { value: 1 }, // ELEMENT_NODE
+      ownerDocument: { value: null },
+    })
     expect(getWindow(el)).toBe(window)
   })
 
   it('returns fallback window when element.ownerDocument.defaultView is null', () => {
     const doc = {} as Document
-    Object.defineProperty(doc, 'nodeType', { value: 9 }) // DOCUMENT_NODE
-    Object.defineProperty(doc, 'defaultView', { value: null })
+    Object.defineProperties(doc, {
+      nodeType: { value: 9 }, // DOCUMENT_NODE
+      defaultView: { value: null },
+    })
 
     const el = {} as Element
-    Object.defineProperty(el, 'nodeType', { value: 1 }) // ELEMENT_NODE
-    Object.defineProperty(el, 'ownerDocument', { value: doc })
+    Object.defineProperties(el, {
+      nodeType: { value: 1 }, // ELEMENT_NODE
+      ownerDocument: { value: doc },
+    })
     expect(getWindow(el)).toBe(window)
   })
 

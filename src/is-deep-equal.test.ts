@@ -29,8 +29,8 @@ describe('isDeepEqual', () => {
     })
 
     it('handles NaN correctly', () => {
-      expect(isDeepEqual(Number.NaN, Number.NaN)).toBe(true)
-      expect(isDeepEqual(Number.NaN, 0)).toBe(false)
+      expect(isDeepEqual(NaN, NaN)).toBe(true)
+      expect(isDeepEqual(NaN, 0)).toBe(false)
     })
 
     it('returns false when comparing null or undefined with other values', () => {

@@ -11,6 +11,6 @@ export function formatBytes(bytes: number): string {
     num /= 1024
     unitIndex++
   }
-  const fraction = unitIndex === 0 && num % 1 === 0 ? 0 : 1
+  const fraction = unitIndex === 0 && Number.isSafeInteger(num) ? 0 : 1
   return `${num.toFixed(fraction)}${units[unitIndex]}`
 }
