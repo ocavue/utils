@@ -13,9 +13,9 @@
     "@ocavue/utils": "workspace:*",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rslib/core": "^0.22.0",
-    "esbuild": "^0.28.0",
+    "esbuild": "^0.28.2",
     "prettier": "^3.8.3",
-    "rolldown": "^1.0.3",
-    "rollup": "^4.61.0"
+    "rolldown": "^1.2.4",
+    "rollup": "^4.62.4"
   }
 }
