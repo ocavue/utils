@@ -91,9 +91,9 @@ describe('objectGroupBy', () => {
 
   it('falls back to polyfill when Object.groupBy is not available', () => {
     const items = [1, 2, 3, 4, 5, 6]
-    const result = objectGroupBy(items, (item) =>
-      item % 2 === 0 ? 'even' : 'odd',
-    )
+    const result = objectGroupBy(items, (item) => {
+      return item % 2 === 0 ? 'even' : 'odd'
+    })
 
     expect(result.even).toEqual([2, 4, 6])
     expect(result.odd).toEqual([1, 3, 5])
