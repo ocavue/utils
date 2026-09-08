@@ -16,6 +16,6 @@
     "esbuild": "^0.28.2",
     "prettier": "^3.9.6",
     "rolldown": "^1.2.4",
-    "rollup": "^4.62.4"
+    "rollup": "^4.63.1"
   }
 }
