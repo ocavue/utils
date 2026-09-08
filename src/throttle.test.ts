@@ -140,4 +140,197 @@ describe('throttle', () => {
 
     vi.useRealTimers()
   })
+
+  it('does not call the function again immediately after a trailing call', () => {
+    vi.useFakeTimers()
+
+    const spy = vi.fn()
+    const throttled = throttle(spy, 100)
+
+    throttled('first')
+    throttled('second')
+
+    vi.advanceTimersByTime(100)
+    expect(spy).toHaveBeenCalledTimes(2)
+
+    vi.advanceTimersByTime(1)
+    throttled('third')
+    expect(spy).toHaveBeenCalledTimes(2)
+
+    vi.advanceTimersByTime(99)
+    expect(spy).toHaveBeenCalledTimes(3)
+    expect(spy).toHaveBeenLastCalledWith('third')
+
+    vi.useRealTimers()
+  })
+
+  it('uses the default behavior when passed an empty options object', () => {
+    vi.useFakeTimers()
+
+    const spy = vi.fn()
+    const throttled = throttle(spy, 100, {})
+
+    throttled('first')
+    throttled('second')
+
+    expect(spy).toHaveBeenCalledTimes(1)
+    expect(spy).toHaveBeenCalledWith('first')
+
+    vi.advanceTimersByTime(100)
+
+    expect(spy).toHaveBeenCalledTimes(2)
+    expect(spy).toHaveBeenLastCalledWith('second')
+
+    vi.useRealTimers()
+  })
+
+  describe('with { leading: false }', () => {
+    it('does not call the function on the leading edge', () => {
+      vi.useFakeTimers()
+
+      const spy = vi.fn()
+      const throttled = throttle(spy, 100, { leading: false })
+
+      throttled()
+      expect(spy).toHaveBeenCalledTimes(0)
+
+      vi.useRealTimers()
+    })
+
+    it('calls the function on the trailing edge with the latest args', () => {
+      vi.useFakeTimers()
+
+      const spy = vi.fn()
+      const throttled = throttle(spy, 100, { leading: false })
+
+      throttled('first')
+      throttled('second')
+      throttled('third')
+
+      expect(spy).toHaveBeenCalledTimes(0)
+
+      vi.advanceTimersByTime(100)
+
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith('third')
+
+      vi.useRealTimers()
+    })
+
+    it('does not push back the trailing call when called again in the wait period', () => {
+      vi.useFakeTimers()
+
+      const spy = vi.fn()
+      const throttled = throttle(spy, 100, { leading: false })
+
+      throttled('first')
+      vi.advanceTimersByTime(50)
+      throttled('second')
+      vi.advanceTimersByTime(50)
+
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith('second')
+
+      vi.useRealTimers()
+    })
+
+    it('waits a full wait period before the next trailing call', () => {
+      vi.useFakeTimers()
+
+      const spy = vi.fn()
+      const throttled = throttle(spy, 100, { leading: false })
+
+      throttled('first')
+      vi.advanceTimersByTime(100)
+      expect(spy).toHaveBeenCalledTimes(1)
+
+      vi.advanceTimersByTime(1000)
+
+      throttled('second')
+      vi.advanceTimersByTime(99)
+      expect(spy).toHaveBeenCalledTimes(1)
+
+      vi.advanceTimersByTime(1)
+      expect(spy).toHaveBeenCalledTimes(2)
+      expect(spy).toHaveBeenLastCalledWith('second')
+
+      vi.useRealTimers()
+    })
+  })
+
+  describe('with { trailing: false }', () => {
+    it('calls the function immediately on first invocation', () => {
+      vi.useFakeTimers()
+
+      const spy = vi.fn()
+      const throttled = throttle(spy, 100, { trailing: false })
+
+      throttled('first')
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith('first')
+
+      vi.useRealTimers()
+    })
+
+    it('drops calls made during the wait period', () => {
+      vi.useFakeTimers()
+
+      const spy = vi.fn()
+      const throttled = throttle(spy, 100, { trailing: false })
+
+      throttled('first')
+      throttled('second')
+      throttled('third')
+
+      expect(spy).toHaveBeenCalledTimes(1)
+
+      vi.advanceTimersByTime(1000)
+
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith('first')
+
+      vi.useRealTimers()
+    })
+
+    it('allows a new leading call after the wait period has elapsed', () => {
+      vi.useFakeTimers()
+
+      const spy = vi.fn()
+      const throttled = throttle(spy, 100, { trailing: false })
+
+      throttled('first')
+      vi.advanceTimersByTime(100)
+      throttled('second')
+
+      expect(spy).toHaveBeenCalledTimes(2)
+      expect(spy).toHaveBeenLastCalledWith('second')
+
+      vi.useRealTimers()
+    })
+  })
+
+  describe('with { leading: false, trailing: false }', () => {
+    it('never calls the function', () => {
+      vi.useFakeTimers()
+
+      const spy = vi.fn()
+      const throttled = throttle(spy, 100, {
+        leading: false,
+        trailing: false,
+      })
+
+      throttled()
+      vi.advanceTimersByTime(100)
+
+      throttled()
+      vi.advanceTimersByTime(1000)
+
+      throttled()
+      vi.advanceTimersByTime(1000)
+
+      expect(spy).toHaveBeenCalledTimes(0)
+
+      vi.useRealTimers()
+    })
+  })
 })
