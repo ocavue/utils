@@ -194,6 +194,23 @@ describe('throttle', () => {
       vi.useRealTimers()
     })
 
+    it('does not push back the trailing call when called again in the wait period', () => {
+      vi.useFakeTimers()
+
+      const spy = vi.fn()
+      const throttled = throttle(spy, 100, { leading: false })
+
+      throttled('first')
+      vi.advanceTimersByTime(50)
+      throttled('second')
+      vi.advanceTimersByTime(50)
+
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith('second')
+
+      vi.useRealTimers()
+    })
+
     it('waits a full wait period before the next trailing call', () => {
       vi.useFakeTimers()
 

@@ -59,7 +59,7 @@ export function throttle<T extends (this: any, ...args: any[]) => unknown>(
   const trailing = options?.trailing ?? true
 
   let timeoutId: ReturnType<typeof setTimeout> | undefined
-  let lastCallTime = 0
+  let windowStart = 0
 
   return function throttled(
     this: ThisParameterType<T>,
@@ -69,20 +69,23 @@ export function throttle<T extends (this: any, ...args: any[]) => unknown>(
 
     const now = Date.now()
 
-    if (lastCallTime === 0 && !leading) {
-      lastCallTime = now
+    if (now - windowStart >= delay) {
+      windowStart = now
+
+      if (leading) {
+        callback.apply(this, args)
+        return
+      }
     }
 
-    const remaining = delay + lastCallTime - now
-
-    if (remaining <= 0 && leading) {
-      lastCallTime = now
-      callback.apply(this, args)
-    } else if (trailing) {
-      timeoutId = setTimeout(() => {
-        lastCallTime = leading ? Date.now() : 0
-        callback.apply(this, args)
-      }, remaining)
+    if (trailing) {
+      timeoutId = setTimeout(
+        () => {
+          windowStart = Date.now()
+          callback.apply(this, args)
+        },
+        delay + windowStart - now,
+      )
     }
   }
 }
