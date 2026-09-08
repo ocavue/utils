@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/ocavue/utils/compare/v1.7.0...v1.8.0) (2026-09-08)
+
+
+### Features
+
+* add `leading` and `trailing` options to `throttle` ([#105](https://github.com/ocavue/utils/issues/105)) ([3120702](https://github.com/ocavue/utils/commit/3120702459dd053a62e2e1b2355db26c2459bc1e))
+
 ## [1.7.0](https://github.com/ocavue/utils/compare/v1.6.0...v1.7.0) (2026-06-11)
 
 
