@@ -141,6 +141,29 @@ describe('throttle', () => {
     vi.useRealTimers()
   })
 
+  it('does not call the function again immediately after a trailing call', () => {
+    vi.useFakeTimers()
+
+    const spy = vi.fn()
+    const throttled = throttle(spy, 100)
+
+    throttled('first')
+    throttled('second')
+
+    vi.advanceTimersByTime(100)
+    expect(spy).toHaveBeenCalledTimes(2)
+
+    vi.advanceTimersByTime(1)
+    throttled('third')
+    expect(spy).toHaveBeenCalledTimes(2)
+
+    vi.advanceTimersByTime(99)
+    expect(spy).toHaveBeenCalledTimes(3)
+    expect(spy).toHaveBeenLastCalledWith('third')
+
+    vi.useRealTimers()
+  })
+
   it('uses the default behavior when passed an empty options object', () => {
     vi.useFakeTimers()
 
