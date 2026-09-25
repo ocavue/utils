@@ -180,6 +180,20 @@ describe('WeakCounter', () => {
     expect(counter.get(key4)).toBe(0)
   })
 
+  it('accepts initial entries via non-array iterable', () => {
+    const key1 = {}
+    const key2 = {}
+    const existingMap = new Map<object, number>([
+      [key1, 5],
+      [key2, 10],
+    ])
+    const counter = new WeakCounter<object>(existingMap)
+
+    expect(counter.get(key1)).toBe(5)
+    expect(counter.get(key2)).toBe(10)
+    expect(counter.get({})).toBe(0)
+  })
+
   it('works with WeakMap methods', () => {
     const counter = new WeakCounter<object>()
     const key1 = {}
