@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/ocavue/utils/compare/v1.8.0...v1.8.1) (2026-09-25)
+
+
+### Bug Fixes
+
+* accept any iterable in `WeakCounter` and `DefaultWeakMap` ([#108](https://github.com/ocavue/utils/issues/108)) ([0f6222d](https://github.com/ocavue/utils/commit/0f6222d7be3edd7135498af2d19e75f062978433))
+
 ## [1.8.0](https://github.com/ocavue/utils/compare/v1.7.0...v1.8.0) (2026-09-08)
 
 
