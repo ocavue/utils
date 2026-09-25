@@ -4,7 +4,7 @@
 
 A collection of utility functions.
 
-## [API Reference](https://doc.deno.land/https://esm.sh/@ocavue/utils)
+## [API Reference](https://npmx.dev/package-docs/@ocavue/utils)
 
 ## [Changelog](https://github.com/ocavue/utils/releases)
 
