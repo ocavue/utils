@@ -142,8 +142,8 @@ export class Counter<K> extends Map<K, number> {
  * ```
  */
 export class WeakCounter<K extends WeakKey> extends WeakMap<K, number> {
-  constructor(entries?: readonly (readonly [K, number])[] | null) {
-    super(entries)
+  constructor(iterable?: Iterable<readonly [K, number]> | null) {
+    super(iterable)
   }
 
   override get(key: K): number {
