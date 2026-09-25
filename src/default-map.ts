@@ -179,9 +179,9 @@ export class DefaultWeakMap<K extends WeakKey, V> extends WeakMap<K, V> {
 
   constructor(
     defaultFactory: () => V,
-    entries?: readonly (readonly [K, V])[] | null,
+    iterable?: Iterable<readonly [K, V]> | null,
   ) {
-    super(entries)
+    super(iterable)
     this.defaultFactory = defaultFactory
   }
 

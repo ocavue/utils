@@ -245,6 +245,20 @@ describe('DefaultWeakMap', () => {
     expect(map.get(key4)).toBe(0)
   })
 
+  it('accepts initial entries via non-array iterable', () => {
+    const key1 = {}
+    const key2 = {}
+    const existingMap = new Map<object, number>([
+      [key1, 10],
+      [key2, 20],
+    ])
+    const map = new DefaultWeakMap<object, number>(() => 0, existingMap)
+
+    expect(map.get(key1)).toBe(10)
+    expect(map.get(key2)).toBe(20)
+    expect(map.get({})).toBe(0)
+  })
+
   it('calls factory function only when key is missing', () => {
     let callCount = 0
     const map = new DefaultWeakMap<object, number>(() => {
