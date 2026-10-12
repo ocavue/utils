@@ -14,21 +14,21 @@ function e(t) {
 function o() {
   console.log('function_1')
 }
-function u() {
+function i() {
   console.log('function_2')
 }
-var l = e(u)
-function i() {
+var l = e(i)
+function u() {
   console.log('function_3')
 }
-var p = e(i)
+var a = e(u)
 export { o as fn1 }
 
 
 ################################################################################
 esbuild/fn2.js
 --------------------------------------------------------------------------------
-var i = 2 ** 53 - 1
+var u = 2 ** 53 - 1
 function e(t) {
   let n = !1,
     r
@@ -38,26 +38,26 @@ function o() {
   console.log('function_2')
 }
 var f = e(o)
-function u() {
+function i() {
   console.log('function_3')
 }
-var l = e(u)
+var l = e(i)
 export { o as fn2 }
 
 
 ################################################################################
 esbuild/fn3.js
 --------------------------------------------------------------------------------
-var i = 2 ** 53 - 1
+var u = 2 ** 53 - 1
 function e(t) {
   let n = !1,
     r
   return () => (n || ((r = t()), (n = !0), (t = void 0)), r)
 }
-function u() {
+function i() {
   console.log('function_2')
 }
-var f = e(u)
+var f = e(i)
 function o() {
   console.log('function_3')
 }
@@ -78,14 +78,14 @@ function o() {
   console.log('function_2')
 }
 var l = e(o)
-function u() {
+function i() {
   console.log('function_3')
 }
-var p = e(u)
-function i() {
+var a = e(i)
+function u() {
   console.log('function_4')
 }
-export { i as fn4 }
+export { u as fn4 }
 
 
 ################################################################################
