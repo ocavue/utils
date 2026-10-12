@@ -333,4 +333,106 @@ describe('throttle', () => {
       vi.useRealTimers()
     })
   })
+
+  describe('with { signal }', () => {
+    it('behaves as usual before the signal is aborted', () => {
+      vi.useFakeTimers()
+
+      const spy = vi.fn()
+      const controller = new AbortController()
+      const throttled = throttle(spy, 100, { signal: controller.signal })
+
+      throttled('first')
+      throttled('second')
+
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith('first')
+
+      vi.advanceTimersByTime(100)
+
+      expect(spy).toHaveBeenCalledTimes(2)
+      expect(spy).toHaveBeenLastCalledWith('second')
+
+      vi.useRealTimers()
+    })
+
+    it('cancels the pending trailing call when the signal is aborted', () => {
+      vi.useFakeTimers()
+
+      const spy = vi.fn()
+      const controller = new AbortController()
+      const throttled = throttle(spy, 100, { signal: controller.signal })
+
+      throttled('first')
+      throttled('second')
+      expect(spy).toHaveBeenCalledTimes(1)
+
+      controller.abort()
+      vi.advanceTimersByTime(1000)
+
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith('first')
+
+      vi.useRealTimers()
+    })
+
+    it('ignores calls made after the signal is aborted', () => {
+      vi.useFakeTimers()
+
+      const spy = vi.fn()
+      const controller = new AbortController()
+      const throttled = throttle(spy, 100, { signal: controller.signal })
+
+      throttled('first')
+      expect(spy).toHaveBeenCalledTimes(1)
+
+      controller.abort()
+      vi.advanceTimersByTime(1000)
+
+      throttled('second')
+      throttled('third')
+      vi.advanceTimersByTime(1000)
+
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith('first')
+
+      vi.useRealTimers()
+    })
+
+    it('never calls the function when the signal is already aborted', () => {
+      vi.useFakeTimers()
+
+      const spy = vi.fn()
+      const throttled = throttle(spy, 100, { signal: AbortSignal.abort() })
+
+      throttled('first')
+      throttled('second')
+      vi.advanceTimersByTime(1000)
+
+      expect(spy).toHaveBeenCalledTimes(0)
+
+      vi.useRealTimers()
+    })
+
+    it('cancels the pending trailing call with { leading: false }', () => {
+      vi.useFakeTimers()
+
+      const spy = vi.fn()
+      const controller = new AbortController()
+      const throttled = throttle(spy, 100, {
+        leading: false,
+        signal: controller.signal,
+      })
+
+      throttled('first')
+      vi.advanceTimersByTime(50)
+
+      controller.abort()
+      vi.advanceTimersByTime(1000)
+
+      expect(spy).toHaveBeenCalledTimes(0)
+
+      vi.useRealTimers()
+    })
+  })
 })
