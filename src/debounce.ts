@@ -81,7 +81,7 @@ export function debounce<T extends (this: any, ...args: any[]) => unknown>(
       return
     }
 
-    const isLeadingCall = leading && timeoutId === undefined
+    const isLeadingCall = leading && timeoutId == null
 
     clearTimeout(timeoutId)
 
