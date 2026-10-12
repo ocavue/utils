@@ -1,6 +1,7 @@
 export * from './checker'
 export { clamp } from './clamp'
 export { Counter, WeakCounter } from './counter'
+export { debounce, type DebounceOptions } from './debounce'
 export { DefaultMap, DefaultWeakMap } from './default-map'
 export * from './dom'
 export { formatBytes } from './format-bytes'
