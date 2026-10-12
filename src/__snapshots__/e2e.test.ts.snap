@@ -21,7 +21,7 @@ var l = e(i)
 function u() {
   console.log('function_3')
 }
-var a = e(u)
+var p = e(u)
 export { o as fn1 }
 
 
@@ -81,7 +81,7 @@ var l = e(o)
 function i() {
   console.log('function_3')
 }
-var a = e(i)
+var p = e(i)
 function u() {
   console.log('function_4')
 }

@@ -253,64 +253,6 @@ describe('debounce', () => {
     })
   })
 
-  describe('with { leading: true, trailing: false }', () => {
-    it('drops calls made during the wait period', () => {
-      vi.useFakeTimers()
-
-      const spy = vi.fn()
-      const debounced = debounce(spy, 100, { leading: true, trailing: false })
-
-      debounced('first')
-      debounced('second')
-      debounced('third')
-
-      vi.advanceTimersByTime(1000)
-
-      expect(spy).toHaveBeenCalledTimes(1)
-      expect(spy).toHaveBeenCalledWith('first')
-
-      vi.useRealTimers()
-    })
-
-    it('allows a new leading call after the wait period has elapsed', () => {
-      vi.useFakeTimers()
-
-      const spy = vi.fn()
-      const debounced = debounce(spy, 100, { leading: true, trailing: false })
-
-      debounced('first')
-      debounced('second')
-      vi.advanceTimersByTime(100)
-
-      debounced('third')
-
-      expect(spy).toHaveBeenCalledTimes(2)
-      expect(spy).toHaveBeenLastCalledWith('third')
-
-      vi.useRealTimers()
-    })
-  })
-
-  describe('with { trailing: false }', () => {
-    it('never calls the function', () => {
-      vi.useFakeTimers()
-
-      const spy = vi.fn()
-      const debounced = debounce(spy, 100, { trailing: false })
-
-      debounced()
-      vi.advanceTimersByTime(100)
-
-      debounced()
-      debounced()
-      vi.advanceTimersByTime(1000)
-
-      expect(spy).toHaveBeenCalledTimes(0)
-
-      vi.useRealTimers()
-    })
-  })
-
   describe('with { signal }', () => {
     it('behaves as usual before the signal is aborted', () => {
       vi.useFakeTimers()

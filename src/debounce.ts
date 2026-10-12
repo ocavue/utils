@@ -1,21 +1,13 @@
 export interface DebounceOptions {
   /**
-   * Whether the first call of a series invokes `callback` immediately.
+   * Whether to invoke `callback` immediately when a new debounce window
+   * begins. Calls made during that window are still delayed, so a trailing
+   * invocation only happens if the debounced function was called again during
+   * the window.
    *
    * @default false
    */
   leading?: boolean
-
-  /**
-   * Whether the last call of a series invokes `callback`, once `delay`
-   * milliseconds have passed without another call. If `leading` is also
-   * `true`, this trailing invocation only happens when the series has more
-   * than one call. `callback` never runs when both `leading` and `trailing`
-   * are `false`.
-   *
-   * @default true
-   */
-  trailing?: boolean
 
   /**
    * An `AbortSignal` that cancels pending calls and prevents future calls when
@@ -29,12 +21,12 @@ export interface DebounceOptions {
  * milliseconds have passed since the last time the debounced function was
  * called.
  *
- * By default `callback` runs on the trailing edge, with the arguments of the
- * last call. It can also run on the leading edge via `options`.
+ * When the debounced function is called more than once before the delay
+ * expires, `callback` receives the arguments of the most recent call.
  *
  * @param callback The function to debounce
  * @param delay The number of milliseconds to wait after the last call
- * @param options Whether to invoke `callback` on the leading edge (defaults to `false`) and the trailing edge (defaults to `true`), and an optional `signal` to cancel the debounced function
+ * @param options Whether to also invoke `callback` on the leading edge (defaults to `false`), and an optional `signal` to cancel the debounced function
  * @returns A debounced version of the function
  *
  * @example
@@ -73,7 +65,6 @@ export function debounce<T extends (this: any, ...args: any[]) => unknown>(
   options?: DebounceOptions,
 ): (this: ThisParameterType<T>, ...args: Parameters<T>) => void {
   const leading = options?.leading ?? false
-  const trailing = options?.trailing ?? true
   const signal = options?.signal
 
   let timeoutId: ReturnType<typeof setTimeout> | undefined
@@ -97,7 +88,7 @@ export function debounce<T extends (this: any, ...args: any[]) => unknown>(
     timeoutId = setTimeout(() => {
       timeoutId = undefined
 
-      if (trailing && !isLeadingCall) {
+      if (!isLeadingCall) {
         callback.apply(this, args)
       }
     }, delay)
