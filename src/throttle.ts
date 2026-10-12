@@ -16,6 +16,12 @@ export interface ThrottleOptions {
    * @default true
    */
   trailing?: boolean
+
+  /**
+   * An `AbortSignal` that cancels pending calls and prevents future calls when
+   * aborted.
+   */
+  signal?: AbortSignal
 }
 
 /**
@@ -28,7 +34,7 @@ export interface ThrottleOptions {
  *
  * @param callback The function to throttle
  * @param delay The number of milliseconds to throttle invocations to
- * @param options Whether to invoke `callback` on the leading and trailing edges. Both default to `true`
+ * @param options Whether to invoke `callback` on the leading and trailing edges (both default to `true`), and an optional `signal` to cancel the throttled function
  * @returns A throttled version of the function
  *
  * @example
@@ -49,6 +55,18 @@ export interface ThrottleOptions {
  * throttled('Bob') // skipped
  * // after 1000ms, logs 'called Bob' (trailing call)
  * ```
+ *
+ * @example
+ * ```js
+ * const controller = new AbortController()
+ * const throttled = throttle((name) => console.log('called', name), 1000, {
+ *   signal: controller.signal,
+ * })
+ * throttled('Alice') // logs 'called Alice' immediately
+ * throttled('Bob') // skipped (within 1000ms)
+ * controller.abort() // cancels the pending trailing call
+ * throttled('Charlie') // skipped (aborted)
+ * ```
  */
 export function throttle<T extends (this: any, ...args: any[]) => unknown>(
   callback: T,
@@ -57,14 +75,23 @@ export function throttle<T extends (this: any, ...args: any[]) => unknown>(
 ): (this: ThisParameterType<T>, ...args: Parameters<T>) => void {
   const leading = options?.leading ?? true
   const trailing = options?.trailing ?? true
+  const signal = options?.signal
 
   let timeoutId: ReturnType<typeof setTimeout> | undefined
   let windowStart = 0
+
+  signal?.addEventListener('abort', () => clearTimeout(timeoutId), {
+    once: true,
+  })
 
   return function throttled(
     this: ThisParameterType<T>,
     ...args: Parameters<T>
   ): void {
+    if (signal?.aborted) {
+      return
+    }
+
     clearTimeout(timeoutId)
 
     const now = Date.now()
