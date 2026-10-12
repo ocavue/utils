@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.9.0](https://github.com/ocavue/utils/compare/v1.8.0...v1.9.0) (2026-10-12)
+
+
+### Features
+
+* add `debounce` ([#115](https://github.com/ocavue/utils/issues/115)) ([eaa59d5](https://github.com/ocavue/utils/commit/eaa59d5601880cce87c264ab207c11199646f40b))
+* add `signal` option to `throttle` ([#114](https://github.com/ocavue/utils/issues/114)) ([bba2466](https://github.com/ocavue/utils/commit/bba2466191fcd98e35acc05682f074ec44f9c307))
+
+
+### Bug Fixes
+
+* accept any iterable in `WeakCounter` and `DefaultWeakMap` ([#108](https://github.com/ocavue/utils/issues/108)) ([0f6222d](https://github.com/ocavue/utils/commit/0f6222d7be3edd7135498af2d19e75f062978433))
+
 ## [1.8.0](https://github.com/ocavue/utils/compare/v1.7.0...v1.8.0) (2026-09-08)
 
 
