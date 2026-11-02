@@ -17,11 +17,11 @@ function o() {
 function i() {
   console.log('function_2')
 }
-var l = t(i)
+var f = t(i)
 function u() {
   console.log('function_3')
 }
-var a = t(u)
+var l = t(u)
 export { o as fn1 }
 
 
@@ -37,11 +37,11 @@ function t(e) {
 function o() {
   console.log('function_2')
 }
-var f = t(o)
+var c = t(o)
 function i() {
   console.log('function_3')
 }
-var l = t(i)
+var f = t(i)
 export { o as fn2 }
 
 
@@ -57,11 +57,11 @@ function t(e) {
 function i() {
   console.log('function_2')
 }
-var f = t(i)
+var c = t(i)
 function o() {
   console.log('function_3')
 }
-var l = t(o)
+var f = t(o)
 export { o as fn3 }
 
 
@@ -77,11 +77,11 @@ function t(e) {
 function o() {
   console.log('function_2')
 }
-var l = t(o)
+var f = t(o)
 function i() {
   console.log('function_3')
 }
-var a = t(i)
+var l = t(i)
 function u() {
   console.log('function_4')
 }
