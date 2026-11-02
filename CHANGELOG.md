@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.0](https://github.com/ocavue/utils/compare/v1.10.0...v1.11.0) (2026-11-02)
+
+
+### Features
+
+* add type parameter to `isDeepEqual` and `isShallowEqual` ([#121](https://github.com/ocavue/utils/issues/121)) ([f11ea42](https://github.com/ocavue/utils/commit/f11ea42b5268c1062fd22da3cb5c379cfcde1322))
+
 ## [1.10.0](https://github.com/ocavue/utils/compare/v1.9.0...v1.10.0) (2026-11-02)
 
 
