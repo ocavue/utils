@@ -22,9 +22,9 @@ describe('isDeepEqual', () => {
     })
 
     it('returns false for different types', () => {
-      expect(isDeepEqual(42, '42')).toBe(false)
-      expect(isDeepEqual(0, false)).toBe(false)
-      expect(isDeepEqual('', false)).toBe(false)
+      expect(isDeepEqual<unknown>(42, '42')).toBe(false)
+      expect(isDeepEqual<unknown>(0, false)).toBe(false)
+      expect(isDeepEqual<unknown>('', false)).toBe(false)
       expect(isDeepEqual(null, undefined)).toBe(false)
     })
 
@@ -207,15 +207,15 @@ describe('isDeepEqual', () => {
   describe('mixed types', () => {
     it('returns false when comparing different collection types', () => {
       expect(isDeepEqual([], {})).toBe(false)
-      expect(isDeepEqual(new Set(), new Map())).toBe(false)
-      expect(isDeepEqual(new Set([1, 2]), [1, 2])).toBe(false)
-      expect(isDeepEqual(new Map(), {})).toBe(false)
+      expect(isDeepEqual<unknown>(new Set(), new Map())).toBe(false)
+      expect(isDeepEqual<unknown>(new Set([1, 2]), [1, 2])).toBe(false)
+      expect(isDeepEqual<unknown>(new Map(), {})).toBe(false)
     })
 
     it('returns false when comparing an object with a different collection type', () => {
       expect(isDeepEqual({}, [])).toBe(false)
-      expect(isDeepEqual({}, new Map())).toBe(false)
-      expect(isDeepEqual({}, new Set())).toBe(false)
+      expect(isDeepEqual<unknown>({}, new Map())).toBe(false)
+      expect(isDeepEqual<unknown>({}, new Set())).toBe(false)
       expect(isDeepEqual({ 0: 1 }, [1])).toBe(false)
     })
 

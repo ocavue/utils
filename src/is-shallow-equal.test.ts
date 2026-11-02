@@ -21,8 +21,8 @@ describe('isShallowEqual', () => {
     })
 
     it('returns false for different types', () => {
-      expect(isShallowEqual(42, '42')).toBe(false)
-      expect(isShallowEqual(0, false)).toBe(false)
+      expect(isShallowEqual<unknown>(42, '42')).toBe(false)
+      expect(isShallowEqual<unknown>(0, false)).toBe(false)
       expect(isShallowEqual(null, undefined)).toBe(false)
     })
 
@@ -140,9 +140,9 @@ describe('isShallowEqual', () => {
     it('returns false when comparing different collection types', () => {
       expect(isShallowEqual([], {})).toBe(false)
       expect(isShallowEqual({}, [])).toBe(false)
-      expect(isShallowEqual(new Set(), new Map())).toBe(false)
-      expect(isShallowEqual(new Map(), {})).toBe(false)
-      expect(isShallowEqual({}, new Map())).toBe(false)
+      expect(isShallowEqual<unknown>(new Set(), new Map())).toBe(false)
+      expect(isShallowEqual<unknown>(new Map(), {})).toBe(false)
+      expect(isShallowEqual<unknown>({}, new Map())).toBe(false)
     })
   })
 })
