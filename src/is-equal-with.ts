@@ -21,8 +21,7 @@ export function isEqualWith(
     return false
   }
 
-  const aType = typeof a
-  if (aType !== typeof b) {
+  if (typeof a !== typeof b) {
     return false
   }
 
@@ -82,7 +81,7 @@ export function isEqualWith(
     return false
   }
 
-  if (aType === 'object') {
+  if (typeof a  === 'object') {
     const aKeys = Object.keys(a)
     const bKeys = Object.keys(b)
     if (aKeys.length !== bKeys.length) {
