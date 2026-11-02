@@ -6,9 +6,5 @@ import { isEqualWith } from './is-equal-with'
  * reference.
  */
 export function isShallowEqual(a: unknown, b: unknown): boolean {
-  return isEqualWith(a, b, isSameValueZero)
-}
-
-function isSameValueZero(a: unknown, b: unknown): boolean {
-  return a === b || (Number.isNaN(a) && Number.isNaN(b))
+  return isEqualWith(a, b)
 }

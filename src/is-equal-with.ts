@@ -1,5 +1,9 @@
 import { isMap, isSet } from './checker'
 
+function isSameValueZero(a: unknown, b: unknown): boolean {
+  return a === b || (Number.isNaN(a) && Number.isNaN(b))
+}
+
 /**
  * Whether two values are equal. Values inside arrays, Maps and plain objects
  * are compared with `compareValue`.
@@ -9,9 +13,9 @@ import { isMap, isSet } from './checker'
 export function isEqualWith(
   a: unknown,
   b: unknown,
-  compareValue: (a: unknown, b: unknown) => boolean,
+  compareValue: ((a: unknown, b: unknown) => boolean) = isSameValueZero,
 ): boolean {
-  if (a === b) {
+  if (isSameValueZero(a, b)) {
     return true
   }
 
@@ -24,10 +28,6 @@ export function isEqualWith(
   const bType = typeof b
   if (aType !== bType) {
     return false
-  }
-
-  if (aType === 'number' && Number.isNaN(a) && Number.isNaN(b)) {
-    return true
   }
 
   if (Array.isArray(a)) {
