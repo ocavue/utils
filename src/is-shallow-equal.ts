@@ -1,4 +1,5 @@
 import { isEqualWith } from './is-equal-with'
+import { isSameValueZero } from './is-same-value-zero'
 
 /**
  * Whether two values are shallowly equal. Arrays, Sets, Maps and plain objects
@@ -6,5 +7,5 @@ import { isEqualWith } from './is-equal-with'
  * reference.
  */
 export function isShallowEqual(a: unknown, b: unknown): boolean {
-  return isEqualWith(a, b)
+  return isEqualWith(a, b, isSameValueZero )
 }

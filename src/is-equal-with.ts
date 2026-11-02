@@ -1,8 +1,6 @@
 import { isMap, isSet } from './checker'
+import { isSameValueZero } from './is-same-value-zero'
 
-function isSameValueZero(a: unknown, b: unknown): boolean {
-  return a === b || (Number.isNaN(a) && Number.isNaN(b))
-}
 
 /**
  * Whether two values are equal. Values inside arrays, Maps and plain objects
@@ -13,7 +11,7 @@ function isSameValueZero(a: unknown, b: unknown): boolean {
 export function isEqualWith(
   a: unknown,
   b: unknown,
-  compareValue: ((a: unknown, b: unknown) => boolean) = isSameValueZero,
+  compareValue: ((a: unknown, b: unknown) => boolean),
 ): boolean {
   if (isSameValueZero(a, b)) {
     return true
