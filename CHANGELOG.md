@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.10.0](https://github.com/ocavue/utils/compare/v1.9.0...v1.10.0) (2026-11-02)
+
+
+### Features
+
+* add `isShallowEqual` ([#118](https://github.com/ocavue/utils/issues/118)) ([339095b](https://github.com/ocavue/utils/commit/339095b9eb215e56f6d4d40481c425585add0aba))
+
+
+### Bug Fixes
+
+* make `isDeepEqual` symmetric and check missing keys ([#116](https://github.com/ocavue/utils/issues/116)) ([ad2898e](https://github.com/ocavue/utils/commit/ad2898e528a1f346af7150c67ea6f7edd4e62782))
+
 ## [1.9.0](https://github.com/ocavue/utils/compare/v1.8.0...v1.9.0) (2026-10-12)
 
 
