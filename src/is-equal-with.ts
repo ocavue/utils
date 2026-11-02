@@ -22,8 +22,7 @@ export function isEqualWith(
   }
 
   const aType = typeof a
-  const bType = typeof b
-  if (aType !== bType) {
+  if (aType !== typeof b) {
     return false
   }
 
