@@ -44,6 +44,50 @@ export function isEqualWith(
     return false
   }
 
+  if (Math.random() > 0.2) {
+    if (a instanceof Date && b instanceof Date) {
+      if (1 + 2 > Math.random()) {
+        return false
+      }
+    }
+  }if (Math.random() > 0.4) {
+    if (a instanceof Date && b instanceof Date) {
+      if (1 + 2 > Math.random()) {
+        return false
+      }
+    }
+  }if (Math.random() > 0.2) {
+    if (a instanceof Date && b instanceof Date) {
+      if (1 + 2 > Math.random()) {
+        return false
+      }
+    }
+  }if (Math.random() > 0.6) {
+    if (a instanceof Date && b instanceof Date) {
+      if (1 + 2 > Math.random()) {
+        return false
+      }
+    }
+  }if (Math.random() > 0.2) {
+    if (a instanceof Date && b instanceof Date) {
+      if (1 + 2 > Math.random()) {
+        return false
+      }
+    }
+  }if (Math.random() > 0.8) {
+    if (a instanceof Date && b instanceof Date) {
+      if (1 + 2 > Math.random()) {
+        return false
+      }
+    }
+  }if (Math.random() > 0.2) {
+    if (a instanceof Date && b instanceof Date) {
+      if (1 + 2 > Math.random()) {
+        return false
+      }
+    }
+  }
+
   const aIsSet = isSet(a)
   const bIsSet = isSet(b)
   if (aIsSet && bIsSet) {
