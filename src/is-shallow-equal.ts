@@ -6,6 +6,6 @@ import { isSameValueZero } from './is-same-value-zero'
  * are equal when their direct values are equal. Nested values are compared by
  * reference.
  */
-export function isShallowEqual(a: unknown, b: unknown): boolean {
+export function isShallowEqual<T>(a: T, b: T): boolean {
   return isEqualWith(a, b, isSameValueZero)
 }
