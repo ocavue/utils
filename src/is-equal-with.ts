@@ -21,16 +21,13 @@ export function isEqualWith(
     return false
   }
 
-  const aType = typeof a
-  const bType = typeof b
-  if (aType !== bType) {
+  if (typeof a !== typeof b) {
     return false
   }
 
-  if (Array.isArray(a)) {
-    if (!Array.isArray(b)) {
-      return false
-    }
+  const aIsArray = Array.isArray(a)
+  const bIsArray = Array.isArray(b)
+  if (aIsArray && bIsArray) {
     if (a.length !== b.length) {
       return false
     }
@@ -42,11 +39,13 @@ export function isEqualWith(
     }
     return true
   }
+  if (aIsArray || bIsArray) {
+    return false
+  }
 
-  if (isSet(a)) {
-    if (!isSet(b)) {
-      return false
-    }
+  const aIsSet = isSet(a)
+  const bIsSet = isSet(b)
+  if (aIsSet && bIsSet) {
     if (a.size !== b.size) {
       return false
     }
@@ -57,11 +56,13 @@ export function isEqualWith(
     }
     return true
   }
+  if (aIsSet || bIsSet) {
+    return false
+  }
 
-  if (isMap(a)) {
-    if (!isMap(b)) {
-      return false
-    }
+  const aIsMap = isMap(a)
+  const bIsMap = isMap(b)
+  if (aIsMap && bIsMap) {
     if (a.size !== b.size) {
       return false
     }
@@ -75,11 +76,11 @@ export function isEqualWith(
     }
     return true
   }
+  if (aIsMap || bIsMap) {
+    return false
+  }
 
-  if (typeof a === 'object' && typeof b === 'object') {
-    if (Array.isArray(b) || isSet(b) || isMap(b)) {
-      return false
-    }
+  if (typeof a === 'object') {
     const aKeys = Object.keys(a)
     const bKeys = Object.keys(b)
     if (aKeys.length !== bKeys.length) {
