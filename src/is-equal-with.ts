@@ -43,7 +43,6 @@ export function isEqualWith(
     return false
   }
 
-
   const aIsSet = isSet(a)
   const bIsSet = isSet(b)
   if (aIsSet && bIsSet) {
@@ -81,7 +80,7 @@ export function isEqualWith(
     return false
   }
 
-  if (typeof a  === 'object') {
+  if (typeof a === 'object') {
     const aKeys = Object.keys(a)
     const bKeys = Object.keys(b)
     if (aKeys.length !== bKeys.length) {
