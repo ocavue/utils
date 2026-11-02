@@ -73,6 +73,9 @@ export function isDeepEqual(a: unknown, b: unknown): boolean {
   }
 
   if (typeof a === 'object' && typeof b === 'object') {
+    if (Array.isArray(b) || isSet(b) || isMap(b)) {
+      return false
+    }
     const aKeys = Object.keys(a)
     const bKeys = Object.keys(b)
     if (aKeys.length !== bKeys.length) {
@@ -80,6 +83,7 @@ export function isDeepEqual(a: unknown, b: unknown): boolean {
     }
     for (const key of aKeys) {
       if (
+        !Object.hasOwn(b, key) ||
         !isDeepEqual(
           (a as Record<string, unknown>)[key],
           (b as Record<string, unknown>)[key],

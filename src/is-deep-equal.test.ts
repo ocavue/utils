@@ -97,6 +97,19 @@ describe('isDeepEqual', () => {
       expect(isDeepEqual({ a: 1, b: 2 }, { a: 1 })).toBe(false)
     })
 
+    it('returns false for objects with a missing key', () => {
+      expect(isDeepEqual({ x: undefined }, { y: 123 })).toBe(false)
+      expect(isDeepEqual({ y: 123 }, { x: undefined })).toBe(false)
+      expect(isDeepEqual({ a: undefined, b: 1 }, { b: 1, c: 'hello' })).toBe(
+        false,
+      )
+      expect(isDeepEqual({ b: 1, c: 'hello' }, { a: undefined, b: 1 })).toBe(
+        false,
+      )
+      expect(isDeepEqual({ a: undefined }, { b: undefined })).toBe(false)
+      expect(isDeepEqual({ a: undefined }, {})).toBe(false)
+    })
+
     it('returns false for objects with different values', () => {
       expect(isDeepEqual({ a: 1 }, { a: 2 })).toBe(false)
       expect(isDeepEqual({ a: 'hello' }, { a: 'world' })).toBe(false)
@@ -197,6 +210,13 @@ describe('isDeepEqual', () => {
       expect(isDeepEqual(new Set(), new Map())).toBe(false)
       expect(isDeepEqual(new Set([1, 2]), [1, 2])).toBe(false)
       expect(isDeepEqual(new Map(), {})).toBe(false)
+    })
+
+    it('returns false when comparing an object with a different collection type', () => {
+      expect(isDeepEqual({}, [])).toBe(false)
+      expect(isDeepEqual({}, new Map())).toBe(false)
+      expect(isDeepEqual({}, new Set())).toBe(false)
+      expect(isDeepEqual({ 0: 1 }, [1])).toBe(false)
     })
 
     it('handles complex nested structures', () => {
