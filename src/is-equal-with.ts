@@ -26,7 +26,6 @@ export function isEqualWith(
     return false
   }
 
-
   const aIsArray = Array.isArray(a)
   const bIsArray = Array.isArray(b)
   if (aIsArray && bIsArray) {
@@ -82,7 +81,7 @@ export function isEqualWith(
     return false
   }
 
-  if (aType === 'object' ) {
+  if (aType === 'object') {
     const aKeys = Object.keys(a)
     const bKeys = Object.keys(b)
     if (aKeys.length !== bKeys.length) {
