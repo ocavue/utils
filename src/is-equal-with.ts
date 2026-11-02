@@ -1,7 +1,6 @@
 import { isMap, isSet } from './checker'
 import { isSameValueZero } from './is-same-value-zero'
 
-
 /**
  * Whether two values are equal. Values inside arrays, Maps and plain objects
  * are compared with `compareValue`.
@@ -11,7 +10,7 @@ import { isSameValueZero } from './is-same-value-zero'
 export function isEqualWith(
   a: unknown,
   b: unknown,
-  compareValue: ((a: unknown, b: unknown) => boolean),
+  compareValue: (a: unknown, b: unknown) => boolean,
 ): boolean {
   if (isSameValueZero(a, b)) {
     return true

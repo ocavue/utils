@@ -7,5 +7,5 @@ import { isSameValueZero } from './is-same-value-zero'
  * reference.
  */
 export function isShallowEqual(a: unknown, b: unknown): boolean {
-  return isEqualWith(a, b, isSameValueZero )
+  return isEqualWith(a, b, isSameValueZero)
 }
