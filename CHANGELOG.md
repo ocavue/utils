@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0](https://github.com/ocavue/utils/compare/v1.11.0...v1.12.0) (2026-11-09)
+
+
+### Features
+
+* add `noop`, `returnTrue`, `returnFalse` and `returnNull` ([#124](https://github.com/ocavue/utils/issues/124)) ([645cf39](https://github.com/ocavue/utils/commit/645cf3974a0ecf719915cf0cadbfdba91005a9c2))
+
 ## [1.11.0](https://github.com/ocavue/utils/compare/v1.10.0...v1.11.0) (2026-11-02)
 
 
