@@ -10,6 +10,13 @@ export { isDeepEqual } from './is-deep-equal'
 export { isShallowEqual } from './is-shallow-equal'
 export { mapGroupBy } from './map-group-by'
 export { mapValues } from './map-values'
+export {
+  noop,
+  returnFalse,
+  returnNull,
+  returnTrue,
+  returnUndefined,
+} from './noop'
 export { objectEntries, type ObjectEntries } from './object-entries'
 export { objectGroupBy } from './object-group-by'
 export { once } from './once'
