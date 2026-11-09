@@ -2,13 +2,7 @@
 
 import { describe, expect, expectTypeOf, it } from 'vitest'
 
-import {
-  noop,
-  returnFalse,
-  returnNull,
-  returnTrue,
-  returnUndefined,
-} from './noop'
+import { noop, returnFalse, returnNull, returnTrue } from './noop'
 
 describe('noop', () => {
   it('returns undefined', () => {
@@ -37,12 +31,5 @@ describe('returnNull', () => {
   it('returns null', () => {
     expect(returnNull()).toBeNull()
     expectTypeOf(returnNull).returns.toEqualTypeOf<null>()
-  })
-})
-
-describe('returnUndefined', () => {
-  it('returns undefined', () => {
-    expect(returnUndefined()).toBeUndefined()
-    expectTypeOf(returnUndefined).returns.toEqualTypeOf<undefined>()
   })
 })
