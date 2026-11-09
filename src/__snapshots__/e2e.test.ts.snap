@@ -11,24 +11,44 @@ function t(e) {
     r
   return () => (n || ((r = e()), (n = !0), (e = void 0)), r)
 }
-function o() {
+function u() {
   console.log('function_1')
 }
-function i() {
+function o() {
   console.log('function_2')
 }
-var l = t(i)
-function u() {
+var l = t(o)
+function i() {
   console.log('function_3')
 }
-var a = t(u)
-export { o as fn1 }
+var a = t(i)
+export { u as fn1 }
 
 
 ################################################################################
 esbuild/fn2.js
 --------------------------------------------------------------------------------
-var u = 2 ** 53 - 1
+var i = 2 ** 53 - 1
+function t(e) {
+  let n = !1,
+    r
+  return () => (n || ((r = e()), (n = !0), (e = void 0)), r)
+}
+function u() {
+  console.log('function_2')
+}
+var f = t(u)
+function o() {
+  console.log('function_3')
+}
+var l = t(o)
+export { u as fn2 }
+
+
+################################################################################
+esbuild/fn3.js
+--------------------------------------------------------------------------------
+var i = 2 ** 53 - 1
 function t(e) {
   let n = !1,
     r
@@ -38,31 +58,11 @@ function o() {
   console.log('function_2')
 }
 var f = t(o)
-function i() {
+function u() {
   console.log('function_3')
 }
-var l = t(i)
-export { o as fn2 }
-
-
-################################################################################
-esbuild/fn3.js
---------------------------------------------------------------------------------
-var u = 2 ** 53 - 1
-function t(e) {
-  let n = !1,
-    r
-  return () => (n || ((r = e()), (n = !0), (e = void 0)), r)
-}
-function i() {
-  console.log('function_2')
-}
-var f = t(i)
-function o() {
-  console.log('function_3')
-}
-var l = t(o)
-export { o as fn3 }
+var l = t(u)
+export { u as fn3 }
 
 
 ################################################################################
@@ -74,18 +74,18 @@ function t(e) {
     r
   return () => (n || ((r = e()), (n = !0), (e = void 0)), r)
 }
-function o() {
+function u() {
   console.log('function_2')
 }
-var l = t(o)
-function i() {
+var l = t(u)
+function o() {
   console.log('function_3')
 }
-var a = t(i)
-function u() {
+var a = t(o)
+function i() {
   console.log('function_4')
 }
-export { u as fn4 }
+export { i as fn4 }
 
 
 ################################################################################
