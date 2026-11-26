@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.13.0](https://github.com/ocavue/utils/compare/v1.12.0...v1.13.0) (2026-11-26)
+
+
+### Features
+
+* add `range` ([#126](https://github.com/ocavue/utils/issues/126)) ([6e396d7](https://github.com/ocavue/utils/commit/6e396d7979d674ff4fb5be4c381a11d98c7b9de4))
+
 ## [1.12.0](https://github.com/ocavue/utils/compare/v1.11.0...v1.12.0) (2026-11-09)
 
 
